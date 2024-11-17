@@ -119,6 +119,7 @@ const BlogPage = ({ data }) => {
           }}
         ></div>
       </section>
+      <div className='prefooter-gray'></div>
 
       {/* Content Area */}
       <article
