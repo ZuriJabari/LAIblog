@@ -79,22 +79,20 @@ const BlogPage = ({ data }) => {
             {RichText.asText(blog.introduction.raw)}
           </p>
           <p className="text-base text-gray-400 mb-6">{blog.excerpt}</p>
-          <div>
-            <p className="text-base font-semibold mb-2">Share this article</p>
-            <div className="flex space-x-4">
-              <FacebookShareButton url={shareUrl} quote={blog.title}>
-                <FacebookIcon size={40} round />
-              </FacebookShareButton>
-              <TwitterShareButton url={shareUrl} title={blog.title}>
-                <TwitterIcon size={40} round />
-              </TwitterShareButton>
-              <LinkedinShareButton url={shareUrl}>
-                <LinkedinIcon size={40} round />
-              </LinkedinShareButton>
-              <WhatsappShareButton url={shareUrl} title={blog.title}>
-                <WhatsappIcon size={40} round />
-              </WhatsappShareButton>
-            </div>
+          <div className="flex items-center space-x-4">
+            <span className="text-base font-semibold">Share this article:</span>
+            <FacebookShareButton url={shareUrl} quote={blog.title}>
+              <FacebookIcon size={40} round />
+            </FacebookShareButton>
+            <TwitterShareButton url={shareUrl} title={blog.title}>
+              <TwitterIcon size={40} round />
+            </TwitterShareButton>
+            <LinkedinShareButton url={shareUrl}>
+              <LinkedinIcon size={40} round />
+            </LinkedinShareButton>
+            <WhatsappShareButton url={shareUrl} title={blog.title}>
+              <WhatsappIcon size={40} round />
+            </WhatsappShareButton>
           </div>
           <div className="mt-4">
             <Link
