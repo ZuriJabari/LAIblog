@@ -6975,6 +6975,17 @@ module.exports = require("crypto");
 
 /***/ }),
 
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
+
+/***/ }),
+
 /***/ "http":
 /*!***********************!*\
   !*** external "http" ***!
@@ -6994,6 +7005,17 @@ module.exports = require("http");
 
 "use strict";
 module.exports = require("https");
+
+/***/ }),
+
+/***/ "net":
+/*!**********************!*\
+  !*** external "net" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("net");
 
 /***/ }),
 
@@ -7019,6 +7041,17 @@ module.exports = require("stream");
 
 /***/ }),
 
+/***/ "tty":
+/*!**********************!*\
+  !*** external "tty" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
+
+/***/ }),
+
 /***/ "url":
 /*!**********************!*\
   !*** external "url" ***!
@@ -7027,6 +7060,17 @@ module.exports = require("stream");
 
 "use strict";
 module.exports = require("url");
+
+/***/ }),
+
+/***/ "util":
+/*!***********************!*\
+  !*** external "util" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("util");
 
 /***/ }),
 

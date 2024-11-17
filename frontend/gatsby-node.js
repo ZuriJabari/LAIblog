@@ -1,10 +1,7 @@
-const path = require("path")
-
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-
+  const { createPage } = actions;
   const result = await graphql(`
-    {
+    query {
       allPrismicBlogPosts {
         nodes {
           id
@@ -12,22 +9,15 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
-  if (result.errors) {
-    throw result.errors
-  }
-
-  const blogPostTemplate = path.resolve(`./src/templates/blogPost.js`)
-
-  result.data.allPrismicBlogPosts.nodes.forEach(node => {
+  result.data.allPrismicBlogPosts.nodes.forEach((node) => {
     createPage({
       path: `/blog/${node.uid}`,
-      component: blogPostTemplate,
+      component: require.resolve("./src/templates/blogPost.js"),
       context: {
-        id: node.id,
-        uid: node.uid,
+        id: node.id, // Ensure the ID is passed here
       },
-    })
-  })
-}
+    });
+  });
+};

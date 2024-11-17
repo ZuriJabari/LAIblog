@@ -9,3 +9,16 @@ module.exports = {
   },
   plugins: [],
 };
+
+
+// tailwind.config.js
+module.exports = {
+  darkMode: 'class', // Enable class-based dark mode
+  content: ['./src/**/*.{js,jsx,ts,tsx}'], // Adjust to your folder structure
+  theme: {
+    extend: {
+      // Extend theme colors if needed
+    },
+  },
+  plugins: [],
+}
