@@ -131,3 +131,12 @@ blockquote::before {
   color: #6b7280; /* Tailwind's text-gray-500 */
   margin-top: 0.5rem;
 }
+
+
+.container{
+  max-width: 1406px;
+}
+
+a.flex.items-center.space-x-2.px-2.py-1.bg-\[\#f6941e\].text-white.font-medium.rounded.hover\:bg-\[\#1d8f92\].transition-transform.duration-300.transform.hover\:scale-105.block {
+  max-width: 116px;
+}

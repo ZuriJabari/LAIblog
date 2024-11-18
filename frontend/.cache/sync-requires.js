@@ -4,7 +4,6 @@ const preferDefault = m => (m && m.default) || m
 
 
 exports.components = {
-  "component---cache-dev-404-page-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/.cache/dev-404-page.js")),
   "component---src-pages-2020-alg-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/2020-alg.js")),
   "component---src-pages-2021-alg-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/2021-alg.js")),
   "component---src-pages-2022-alg-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/2022-alg.js")),

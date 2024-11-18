@@ -48,7 +48,7 @@ const MultimediaHome = ({ data }) => {
                 <div className="flex flex-wrap gap-2 mb-4">
                   {item.data.categories.map((category, index) => (
                     <Link
-                      to={`/category/${category.category.toLowerCase()}`}
+                      to={`/${category.category.toLowerCase()}`}
                       key={index}
                       className="px-3 py-1 text-sm font-medium text-white bg-[#f6941e] rounded-full hover:bg-[#1d8f92] transition-colors"
                     >
@@ -103,7 +103,7 @@ const MultimediaHome = ({ data }) => {
                 <div className="flex flex-wrap gap-2 mb-4">
                   {item.data.categories.map((category, index) => (
                     <Link
-                      to={`/category/${category.category.toLowerCase()}`}
+                      to={`/${category.category.toLowerCase()}`}
                       key={index}
                       className="px-3 py-1 text-sm font-medium text-white bg-[#1d8f92] rounded-full hover:bg-[#f6941e] transition-colors"
                     >

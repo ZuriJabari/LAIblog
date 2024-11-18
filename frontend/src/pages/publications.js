@@ -1,6 +1,19 @@
 import React from "react";
 import Layout from "../components/Layout";
+import MultimediaHome from "../components/Multimedia/MultimediaHome"; // Import MultimediaHome
 import { graphql, Link } from "gatsby";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  WhatsappIcon,
+} from "react-share";
+import { HiOutlineDownload } from "react-icons/hi"; // Import download icon
+import latestPublicationImage from "../assets/images/alg-2023.png"; // Replace with actual image
 
 const PublicationsComponent = ({ data }) => {
   const publicationArticles = data.allPrismicBlogPosts.nodes;
@@ -9,87 +22,122 @@ const PublicationsComponent = ({ data }) => {
     return <p className="text-center text-gray-600">No publications available.</p>;
   }
 
-  // Split publications into featured (top 2) and others (next 3)
-  const featuredPublications = publicationArticles.slice(0, 2);
-  const otherPublications = publicationArticles.slice(2, 5);
+  // Latest publication for hero section
+  const latestPublication = publicationArticles[0];
+  // Other publications
+  const otherPublications = publicationArticles.slice(1, 6);
+
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative h-[50vh] bg-gradient-to-br from-[#1d8f92] via-[#f6941e] to-[#1d8f92] overflow-hidden">
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative z-10 flex flex-col justify-center h-full">
-          <div className="container mx-auto px-6 lg:px-20">
-            <h1 className="text-4xl sm:text-6xl font-extrabold text-white mb-6">
-              Publications
-            </h1>
-            <p className="text-lg sm:text-xl text-white max-w-3xl leading-relaxed">
-              Dive into our collection of insightful publications, reports, and research 
-              shaping the narrative for impactful change.
-            </p>
+      <section className="relative bg-[#1d8f92] text-white">
+        {/* Full-width background with aligned content */}
+        <div className="bg-[#545456]">
+          <div className="container mx-auto flex justify-between items-center px-6 lg:px-20 py-2">
+            <span className="text-sm font-bold text-white">
+              {latestPublication.data.categories[0]?.category || "Publication"}
+            </span>
+            <a
+              href="/path/to/publication.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 px-3 py-1 bg-[#1d8f92] text-white font-medium rounded hover:bg-white hover:text-[#1d8f92] transition-transform duration-300 transform hover:scale-105"
+            >
+              <HiOutlineDownload />
+              <span>Download PDF</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="container mx-auto px-6 lg:px-20 py-8 lg:py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-6 lg:space-y-8">
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-[#f6941e]">Our Latest Publications</p>
+                <hr className="border-t border-gray-300 w-[270px] animate-slide-in" />
+                <p className="text-sm">{latestPublication.data.publish_date}</p>
+              </div>
+              <h1 className="text-2xl sm:text-3xl font-bold leading-snug">
+                {latestPublication.data.title}
+              </h1>
+              {/* Compact Download Button */}
+              <a
+                href="/path/to/publication.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-2 py-1 bg-[#f6941e] text-white font-medium rounded hover:bg-[#1d8f92] transition-transform duration-300 transform hover:scale-105"
+                style={{ maxWidth: "116px" }}
+              >
+                <HiOutlineDownload />
+                <span>Download</span>
+              </a>
+              <p className="text-base text-gray-200 leading-relaxed">
+                This report delves into groundbreaking insights and transformative ideas,
+                offering actionable recommendations for meaningful change. Stay informed
+                and explore key findings shaping critical discussions today.
+              </p>
+              {/* Social Share Section */}
+              <div className="flex items-center space-x-3">
+                <span className="text-sm font-medium text-gray-300">Share Publication:</span>
+                <FacebookShareButton url={shareUrl}>
+                  <FacebookIcon
+                    size={32}
+                    round
+                    className="hover:scale-110 transition-transform duration-300"
+                    style={{ fill: "white", backgroundColor: "transparent" }}
+                  />
+                </FacebookShareButton>
+                <TwitterShareButton url={shareUrl}>
+                  <TwitterIcon
+                    size={32}
+                    round
+                    className="hover:scale-110 transition-transform duration-300"
+                    style={{ fill: "white", backgroundColor: "transparent" }}
+                  />
+                </TwitterShareButton>
+                <LinkedinShareButton url={shareUrl}>
+                  <LinkedinIcon
+                    size={32}
+                    round
+                    className="hover:scale-110 transition-transform duration-300"
+                    style={{ fill: "white", backgroundColor: "transparent" }}
+                  />
+                </LinkedinShareButton>
+                <WhatsappShareButton url={shareUrl}>
+                  <WhatsappIcon
+                    size={32}
+                    round
+                    className="hover:scale-110 transition-transform duration-300"
+                    style={{ fill: "white", backgroundColor: "transparent" }}
+                  />
+                </WhatsappShareButton>
+              </div>
+            </div>
+            {/* Right Image */}
+            <div>
+              <img
+                src={latestPublicationImage}
+                alt="Latest Publication"
+                className="w-full max-w-sm h-auto rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Publications Section */}
+      {/* Publications Section */}
       <div className="container mx-auto px-6 lg:px-20 py-10">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Featured Publications</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">Explore</h2>
         <p className="text-lg text-gray-600 mb-6">
-          Explore our most prominent and recent publications that highlight our work and impact.
-        </p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-          {featuredPublications.map((article) => (
-            <div
-              key={article.id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
-            >
-              <Link to={`/blog/${article.uid}`}>
-                {article.data.featured_image?.url && (
-                  <img
-                    src={article.data.featured_image.url}
-                    alt={article.data.title}
-                    className="w-full h-64 object-cover"
-                  />
-                )}
-              </Link>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                  <Link to={`/blog/${article.uid}`} className="hover:underline">
-                    {article.data.title}
-                  </Link>
-                </h3>
-                <p className="text-sm text-gray-500 mb-2">
-                  Published on {article.data.publish_date}
-                </p>
-                {/* Categories with Links */}
-                {article.data.categories?.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {article.data.categories.map((category, index) => (
-                      <Link
-                        to={`/${category.category.toLowerCase()}`}
-                        key={index}
-                        className="px-3 py-1 text-sm font-medium text-white bg-[#f6941e] rounded-full hover:bg-[#1d8f92] transition-colors"
-                      >
-                        {category.category}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-                <Link
-                  to={`/blog/${article.uid}`}
-                  className="mt-4 inline-block text-[#1e8e92] font-semibold hover:underline"
-                >
-                  Read More →
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Other Publications Section */}
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">More Publications</h2>
-        <p className="text-lg text-gray-600 mb-6">
-          Discover more publications that delve deeper into a variety of critical topics and insights.
+          Explore a curated collection of thought-provoking publications that reflect the
+          LéO Africa Institute’s commitment to advancing transformative ideas and fostering
+          impactful change. Dive into these expertly crafted works to uncover
+          innovative perspectives and actionable recommendations designed to shape a brighter,
+          more inclusive future.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {otherPublications.map((article) => (
@@ -118,20 +166,6 @@ const PublicationsComponent = ({ data }) => {
                 <p className="text-sm text-gray-500 mb-2">
                   Published on {article.data.publish_date}
                 </p>
-                {/* Categories with Links */}
-                {article.data.categories?.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {article.data.categories.map((category, index) => (
-                      <Link
-                        to={`/${category.category.toLowerCase()}`}
-                        key={index}
-                        className="px-3 py-1 text-sm font-medium text-white bg-[#1d8f92] rounded-full hover:bg-[#f6941e] transition-colors"
-                      >
-                        {category.category}
-                      </Link>
-                    ))}
-                  </div>
-                )}
                 <Link
                   to={`/blog/${article.uid}`}
                   className="mt-4 inline-block text-[#1e8e92] font-semibold hover:underline"
@@ -142,6 +176,11 @@ const PublicationsComponent = ({ data }) => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Multimedia Section */}
+      <div className="container mx-auto px-6 lg:px-20 py-10">
+        <MultimediaHome data={data} />
       </div>
     </Layout>
   );
