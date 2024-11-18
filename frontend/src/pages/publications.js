@@ -178,6 +178,9 @@ const PublicationsComponent = ({ data }) => {
         </div>
       </div>
 
+      {/* Horizontal Line */}
+      <hr className="my-12 border-t-2 border-gray-300 w-11/12 mx-auto" />
+
       {/* Multimedia Section */}
       <div className="container mx-auto px-6 lg:px-20 py-10">
         <MultimediaHome data={data} />

@@ -18,7 +18,7 @@ const slides = [
   { 
     image: heroImage2, 
     title: "We're Empowering Africa's Future Leaders", 
-    description: "The LéO Africa Institute empowers young African leaders to envision and create a sustainable, inclusive future through transformative programs, networking, and impactful dialogues. Our institute focuses on leadership development, ethical entrepreneurship, and thought leadership, fostering a dedicated community of change-makers committed to reshaping Africa's narrative. Through our collaborative and innovative approach, we are advancing Africa's next generation of transformative leaders.",
+    description: "The LéO Africa Institute empowers young African leaders to create a sustainable, inclusive future through transformative programs and impactful dialogues. We focus on leadership development, ethical entrepreneurship, and thought leadership, fostering a community of change-makers dedicated to reshaping Africa's narrative and advancing its next generation of leaders.",
     h3: "Who we are",
     ctaText: "Learn More",
     ctaLink: "/about"
