@@ -2347,7 +2347,9 @@ const BlogPage = ({
     style: {
       backgroundImage: `url(${((_blog$featured_image = blog.featured_image) === null || _blog$featured_image === void 0 ? void 0 : _blog$featured_image.url) || ""})`
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("article", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "prefooter-gray"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("article", {
     id: "article-content",
     className: "container mx-auto px-6 lg:px-20 py-10 flex flex-col lg:flex-row gap-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {

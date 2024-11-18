@@ -16,6 +16,8 @@ exports.components = {
   "component---src-pages-editions-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/editions.js")),
   "component---src-pages-index-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/index.js")),
   "component---src-pages-media-resource-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/media-resource.js")),
+  "component---src-pages-news-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/news.js")),
+  "component---src-pages-publications-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/publications.js")),
   "component---src-pages-register-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/register.js")),
   "component---src-pages-register-townhall-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/register-townhall.js")),
   "component---src-pages-speakers-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/speakers.js")),

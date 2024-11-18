@@ -11,6 +11,8 @@ exports.components = {
   "component---src-pages-editions-js": () => import("./../../../src/pages/editions.js?export=default" /* webpackChunkName: "component---src-pages-editions-js" */),
   "component---src-pages-index-js": () => import("./../../../src/pages/index.js?export=default" /* webpackChunkName: "component---src-pages-index-js" */),
   "component---src-pages-media-resource-js": () => import("./../../../src/pages/media-resource.js?export=default" /* webpackChunkName: "component---src-pages-media-resource-js" */),
+  "component---src-pages-news-js": () => import("./../../../src/pages/news.js?export=default" /* webpackChunkName: "component---src-pages-news-js" */),
+  "component---src-pages-publications-js": () => import("./../../../src/pages/publications.js?export=default" /* webpackChunkName: "component---src-pages-publications-js" */),
   "component---src-pages-register-js": () => import("./../../../src/pages/register.js?export=default" /* webpackChunkName: "component---src-pages-register-js" */),
   "component---src-pages-register-townhall-js": () => import("./../../../src/pages/register-townhall.js?export=default" /* webpackChunkName: "component---src-pages-register-townhall-js" */),
   "component---src-pages-speakers-js": () => import("./../../../src/pages/speakers.js?export=default" /* webpackChunkName: "component---src-pages-speakers-js" */),

@@ -1,35 +1,52 @@
-import * as React from "react"
-import '../Styles/global.css'; // Import global CSS here
-import Layout from '../components/Layout'
-import HeroSection from "../components/Herosection";
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import HeroSection from "../components/HeroSection";
 import Objectives from "../components/Objectives";
-import Insights from '../components/Insights'; // Import Insights here
+import MultimediaHome from "../components/Multimedia/MultimediaHome";
 import UpcomingEvents from "../components/UpcomingEvents";
 import PartnerWithUs from "../components/PartnerWithUs";
 import Initiatives from "../components/Initiatives";
 import OurPeople from "../components/OurPeople";
 import SubscriptionForm from "../components/SubscriptionForm";
 
-
-
-
-export default function Home() {
+const HomePage = ({ data }) => {
   return (
     <Layout>
-       <main>
-      {/* Hero Section */}
       <HeroSection />
-      <div className='prefooter-gray'></div>
-      {/* Objectives Section in the Content Area */}
-      <Insights/>
+      <div className="prefooter-gray"></div>
+      <MultimediaHome data={data} />
       <Initiatives />
-    
-    
-      <UpcomingEvents/>
-      <OurPeople/>
-      <PartnerWithUs/>
-      <SubscriptionForm/>
-    </main>
+      <div className="prefooter-gray"></div>
+
+      <UpcomingEvents />
+      <OurPeople />
+      <PartnerWithUs />
+      <SubscriptionForm />
     </Layout>
-  )
-}
+  );
+};
+
+export const query = graphql`
+  query HomePageQuery {
+    allPrismicBlogPosts(sort: { fields: data___publish_date, order: DESC }) {
+      nodes {
+        id
+        uid
+        data {
+          title
+          publish_date
+          author
+          featured_image {
+            url
+          }
+          categories {
+            category
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default HomePage;
