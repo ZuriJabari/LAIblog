@@ -31,6 +31,16 @@ const Navbar = () => {
     navigate(`/searchResults?query=${searchQuery}`);
   };
 
+  // Common h2 style for all dropdown menus
+  const columnTitleStyle = { 
+    letterSpacing: '2px', 
+    fontSize: '12px', 
+    paddingBottom: '6px', 
+    marginBottom: '20px',  // Added 20px bottom margin
+    color: '#888', 
+    cursor: 'default', 
+    fontWeight: '400' 
+  };
 
   return (
     <nav className="bg-white border-gray-200 shadow-md">
@@ -147,35 +157,36 @@ const Navbar = () => {
       {/* News & Media Dropdown */}
       {activeMenu === 'News & Media' && (
         <div className="mt-1 bg-white border-gray-200 shadow-sm border-y">
-          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 md:grid-cols-3 md:px-6 gap-6">
-            <ul>
-              <h2 className="uppercase font-bold">BY TYPE</h2>
-              <li><a href="/news/articles" className="hover:underline hover:text-[#2bbecb]">Articles</a></li>
-              <li><a href="/news/founders-blog" className="hover:underline hover:text-[#2bbecb]">Founder's Blog</a></li>
-              <li><a href="/news/research-reports" className="hover:underline hover:text-[#2bbecb]">Research Reports</a></li>
-              <li><a href="/news/podcasts" className="hover:underline hover:text-[#2bbecb]">Podcasts</a></li>
-              <li><a href="/news/videos" className="hover:underline hover:text-[#2bbecb]">Videos</a></li>
-              <a href="/news" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline">
+          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-3 md:px-6 gap-6">
+            <ul className="mb-4 space-y-4">
+              <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>BY TYPE</h2>
+              <li><a href="/news/articles" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Articles</a></li>
+              <li><a href="/news/founders-blog" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Founder's Blog</a></li>
+              <li><a href="/news/research-reports" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Research Reports</a></li>
+              <li><a href="/news/podcasts" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Podcasts</a></li>
+              <li><a href="/news/videos" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Videos</a></li>
+              <a href="/news" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline text-[15px] font-medium">
                 View All Insights & Research <FiArrowRight className="ml-2" />
               </a>
             </ul>
-            <ul>
-              <h2 className="uppercase font-bold">BY CATEGORY</h2>
-              <li><a href="/news/coaching" className="hover:underline hover:text-[#2bbecb]">Coaching & Conversation Skills</a></li>
-              <li><a href="/news/dei" className="hover:underline hover:text-[#2bbecb]">DEI / EDI</a></li>
-              <li><a href="/news/supporting-development" className="hover:underline hover:text-[#2bbecb]">Supporting & Scaling Development</a></li>
-              <li><a href="/news/team-leadership" className="hover:underline hover:text-[#2bbecb]">Team Leadership</a></li>
-              <li><a href="/news/women-leadership" className="hover:underline hover:text-[#2bbecb]">Women in Leadership</a></li>
-              <a href="/news/categories" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline">
+            <ul className="mb-4 space-y-4">
+              <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>BY CATEGORY</h2>
+              <li><a href="/news/coaching" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Coaching & Conversation Skills</a></li>
+              <li><a href="/news/dei" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">DEI / EDI</a></li>
+              <li><a href="/news/supporting-development" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Supporting & Scaling Development</a></li>
+              <li><a href="/news/team-leadership" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Team Leadership</a></li>
+              <li><a href="/news/women-leadership" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Women in Leadership</a></li>
+              <a href="/news/categories" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline text-[15px] font-medium">
                 View All Categories <FiArrowRight className="ml-2" />
               </a>
             </ul>
             <div>
-              <h2 className="uppercase font-bold">LATEST FROM THE BLOG</h2>
+            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
+            LATEST FROM THE BLOG</h2>
               {[1, 2, 3].map((blog) => (
                 <div key={blog} className="mb-4">
-                  <h3 className="font-bold hover:text-[#2bbecb]">Blog Title {blog}</h3>
-                  <p className="text-sm text-gray-500">Brief description of the blog post.</p>
+                  <h3 className="font-bold text-[#3b3b3b] hover:text-[#2bbecb]">Blog Title {blog}</h3>
+                  <p className="text-sm text-[#444]">Brief description of the blog post.</p>
                 </div>
               ))}
               <a href="/blog" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline">
@@ -189,57 +200,70 @@ const Navbar = () => {
        {/* About Us Mega Menu */}
       {activeMenu === 'About Us' && (
         <div className="mt-1 bg-white border-gray-200 shadow-sm border-y">
-          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 md:grid-cols-3 md:px-6 gap-6">
+          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-3 md:px-6 gap-6">
             {/* First Column */}
             <ul className="mb-4 space-y-4">
-              <h2 className="uppercase font-bold">Our Story</h2>
-              <li><a href="/about/history" className="hover:underline hover:text-[#2bbecb]">Our History</a></li>
-              <li><a href="/about/mission" className="hover:underline hover:text-[#2bbecb]">Mission & Vision</a></li>
-              <li><a href="/about/team" className="hover:underline hover:text-[#2bbecb]">The Team</a></li>
-              <li><a href="/about/partners" className="hover:underline hover:text-[#2bbecb]">Our Partners</a></li>
-              <li><a href="/about/awards" className="hover:underline hover:text-[#2bbecb]">Awards & Accolades</a></li>
-              <li><a href="/about/faq" className="hover:underline hover:text-[#2bbecb]">Frequently Asked Questions</a></li>
+              <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
+              Our Story</h2>
+              <li><a href="/about/history" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Our History</a></li>
+              <li><a href="/about/mission" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Mission & Vision</a></li>
+              <li><a href="/about/team" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">The Team</a></li>
+              <li><a href="/about/partners" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Our Partners</a></li>
+              <li><a href="/about/awards" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Awards & Accolades</a></li>
+              <li><a href="/about/faq" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal">Frequently Asked Questions</a></li>
               <a href="/about" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline">
                 Learn More About Us <FiArrowRight className="ml-2" />
               </a>
             </ul>
             {/* Second Column */}
             <ul className="mb-4 space-y-4">
-              <h2 className="uppercase font-bold">Connect</h2>
-              <li><a href="/contact" className="hover:underline hover:text-[#2bbecb]">Contact Us</a></li>
-              <li><a href="/get-involved" className="hover:underline hover:text-[#2bbecb]">Get Involved</a></li>
-              <li><a href="/partners" className="hover:underline hover:text-[#2bbecb]">Partner with Us</a></li>
+            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
+            Connect
+              </h2>
+              <li><a href="/contact" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed">Contact Us</a></li>
+              <li><a href="/get-involved" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed">Get Involved</a></li>
+              <li><a href="/partners" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed">Partner with Us</a></li>
+              
+              {/* Social Media Icons */}
               <div className="flex space-x-4 mt-4">
-                <a href="https://facebook.com" className="hover:text-[#2bbecb]"><FaFacebookF /></a>
-                <a href="https://twitter.com" className="hover:text-[#2bbecb]"><FaTwitter /></a>
-                <a href="https://linkedin.com" className="hover:text-[#2bbecb]"><FaLinkedinIn /></a>
-                <a href="https://instagram.com" className="hover:text-[#2bbecb]"><FaInstagram /></a>
+                <a href="https://facebook.com" className="hover:text-[#2bbecb] text-[#3b3b3b] text-lg"><FaFacebookF /></a>
+                <a href="https://twitter.com" className="hover:text-[#2bbecb] text-[#3b3b3b] text-lg"><FaTwitter /></a>
+                <a href="https://linkedin.com" className="hover:text-[#2bbecb] text-[#3b3b3b] text-lg"><FaLinkedinIn /></a>
+                <a href="https://instagram.com" className="hover:text-[#2bbecb] text-[#3b3b3b] text-lg"><FaInstagram /></a>
               </div>
-              <form className="mt-4">
-                <input
-                  type="email"
-                  placeholder="Subscribe to our newsletter"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2bbecb]"
-                />
-                <button
-                  type="submit"
-                  className="mt-2 w-full bg-[#2bbecb] text-white py-2 rounded-md hover:bg-[#f6911e] transition"
-                >
-                  Subscribe
-                </button>
+
+              {/* Updated Subscription Form */}
+              <form className="mt-6">
+                <div className="relative flex items-center">
+                  <input
+                    type="email"
+                    placeholder="Subscribe to our newsletter"
+                    className="w-full px-4 py-2.5 pr-36 text-[15px] border border-gray-300 rounded-full focus:outline-none focus:border-[#2bbecb] focus:ring-1 focus:ring-[#2bbecb] transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-1 top-1/2 -translate-y-1/2 px-6 py-1.5 bg-[#2bbecb] text-white rounded-full hover:bg-[#f6911e] transition-colors duration-300 text-[14px] font-medium"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+                <p className="mt-2 text-[13px] text-[#444] pl-4">
+                  Join our community for weekly updates
+                </p>
               </form>
             </ul>
             {/* Third Column */}
             <div>
-              <h2 className="uppercase font-bold">Latest News</h2>
+            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
+              Latest News</h2>
               {[1, 2, 3].map((news) => (
                 <div key={news} className="mb-4">
                   
                   <a href={`/news/${news}`} className="block hover:text-[#2bbecb] font-bold">
                     News Title {news}
                   </a>
-                  <p className="text-sm text-gray-500">Date: [Publish Date]</p>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-[#444]">Date: [Publish Date]</p>
+                  <p className="text-[#444]">
                     Brief description of the news.
                   </p>
                   <a
@@ -259,19 +283,17 @@ const Navbar = () => {
       {activeMenu === 'Initiatives' && (
         <div className="mt-1 bg-white border-gray-200 shadow-sm border-y">
           <div className="text-center py-4">
-            <h2 className="text-lg font-bold uppercase text-gray-800">What We Are Doing</h2>
+            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
+            What We Are Doing</h2>
           </div>
-          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 md:grid-cols-4 md:px-6 gap-6">
+          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-4 md:px-6 gap-6">
             {/* Columns for initiatives */}
             {[ALGLogo, HudumaLogo, ReviewLogo, YelpLogo].map((logo, idx) => (
-              <div key={idx} className="text-center">
+              <div key={idx} className="text-center mb-4">
                 <img src={logo} alt={`Initiative ${idx + 1}`} className="mb-4 w-full h-32 object-cover rounded-lg" />
-                <h3 className="font-bold text-gray-800">Initiative {idx + 1}</h3>
-                <p className="text-gray-600">Brief description about the initiative.</p>
-                <a
-                  href="#"
-                  className="inline-flex items-center mt-4 text-[#f6911e] hover:underline"
-                >
+                <h3 className="font-bold text-[#3b3b3b] mb-2">Initiative {idx + 1}</h3>
+                <p className="text-[#444] mb-4">Brief description about the initiative.</p>
+                <a href="#" className="inline-flex items-center text-[#f6911e] hover:underline">
                   Learn More <FiArrowRight className="ml-2" />
                 </a>
               </div>
@@ -283,10 +305,10 @@ const Navbar = () => {
        {/* Fellows & Champions Dropdown */}
       {activeMenu === 'Fellows & Champions' && (
         <div className="mt-1 bg-white border-gray-200 shadow-sm border-y">
-          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 md:grid-cols-3 md:px-6 gap-6">
+          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-3 md:px-6 gap-6">
             {/* Column 1 */}
             <div>
-              <h2 className="uppercase font-bold">FEATURED FELLOWS</h2>
+              <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>FEATURED FELLOWS</h2>
               {[1, 2, 3].map((fellow) => (
                 <div key={fellow} className="mb-4 flex space-x-4">
                   <img
@@ -295,8 +317,8 @@ const Navbar = () => {
                     className="h-16 w-16 object-cover rounded-lg"
                   />
                   <div>
-                    <h3 className="font-bold hover:text-[#2bbecb]">Fellow Name {fellow}</h3>
-                    <p className="text-sm text-gray-500">Brief description about this fellow and their impact.</p>
+                    <h3 className="font-bold text-[#3b3b3b] hover:text-[#2bbecb]">Fellow Name {fellow}</h3>
+                    <p className="text-sm text-[#444]">Brief description about this fellow and their impact.</p>
                     <a href={`/fellows/${fellow}`} className="text-[#f6911e] hover:underline">Read More</a>
                   </div>
                 </div>
@@ -307,11 +329,11 @@ const Navbar = () => {
             </div>
 
             {/* Column 2 */}
-            <ul>
-              <h2 className="uppercase font-bold">MENTORSHIP & CHAMPIONS</h2>
-              <li><a href="/champions" className="hover:underline hover:text-[#2bbecb]">Our Champions</a></li>
-              <li><a href="/mentorship" className="hover:underline hover:text-[#2bbecb]">Mentorship Programs</a></li>
-              <li><a href="/leadership-programs" className="hover:underline hover:text-[#2bbecb]">Leadership Initiatives</a></li>
+            <ul className="mb-4 space-y-4">
+              <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>MENTORSHIP & CHAMPIONS</h2>
+              <li><a href="/champions" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Our Champions</a></li>
+              <li><a href="/mentorship" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Mentorship Programs</a></li>
+              <li><a href="/leadership-programs" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Leadership Initiatives</a></li>
               <a href="/champions-and-mentors" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline">
                 Explore Mentorship & Champions <FiArrowRight className="ml-2" />
               </a>
@@ -319,7 +341,8 @@ const Navbar = () => {
 
             {/* Column 3 */}
             <div>
-              <h2 className="uppercase font-bold">LATEST STORIES</h2>
+            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
+            LATEST STORIES</h2>
               {[1, 2, 3].map((story) => (
                 <div key={story} className="mb-4 flex space-x-4">
                   <img
@@ -328,8 +351,8 @@ const Navbar = () => {
                     className="h-16 w-16 object-cover rounded-lg"
                   />
                   <div>
-                    <h3 className="font-bold hover:text-[#2bbecb]">Story Title {story}</h3>
-                    <p className="text-sm text-gray-500">Teaser text for this story, providing an overview of the content.</p>
+                    <h3 className="font-bold text-[#3b3b3b] hover:text-[#2bbecb]">Story Title {story}</h3>
+                    <p className="text-sm text-[#444]">Teaser text for this story, providing an overview of the content.</p>
                     <a href={`/stories/${story}`} className="text-[#f6911e] hover:underline">Read More</a>
                   </div>
                 </div>
@@ -345,45 +368,46 @@ const Navbar = () => {
       {/* Events & Gatherings Mega Menu */}
       {activeMenu === 'Events & Gatherings' && (
         <div className="mt-1 bg-white border-gray-200 shadow-sm border-y">
-          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 md:grid-cols-3 md:px-6 gap-6">
+          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-3 md:px-6 gap-6">
             {/* Column 1 */}
-            <ul>
-              <h2 className="uppercase font-bold">Our Next Major Event</h2>
-              <li><a href="/events/alg" className="hover:underline hover:text-[#2bbecb]">Annual Leaders Gathering</a></li>
-              <li><a href="/events/yelp" className="hover:underline hover:text-[#2bbecb]">YELP Fellowship</a></li>
-              <li><a href="/events/huduma" className="hover:underline hover:text-[#2bbecb]">Huduma Fellowship</a></li>
-              <li><a href="/events/talks" className="hover:underline hover:text-[#2bbecb]">LéO Talks</a></li>
-              <li><a href="/events/debates" className="hover:underline hover:text-[#2bbecb]">LéO Debates</a></li>
-              <a href="/events" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline">
+            <ul className="mb-4 space-y-4">
+              <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>Our Next Major Event</h2>
+              <li><a href="/events/alg" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Annual Leaders Gathering</a></li>
+              <li><a href="/events/yelp" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">YELP Fellowship</a></li>
+              <li><a href="/events/huduma" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Huduma Fellowship</a></li>
+              <li><a href="/events/talks" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">LéO Talks</a></li>
+              <li><a href="/events/debates" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">LéO Debates</a></li>
+              <a href="/events" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline text-[15px] font-medium">
                 Browse All Events <FiArrowRight className="ml-2" />
               </a>
             </ul>
 
             {/* Column 2 */}
-            <ul>
-              <h2 className="uppercase font-bold">Upcoming Events</h2>
-              <li><a href="/events/leadership" className="hover:underline hover:text-[#2bbecb]">Leadership Development</a></li>
-              <li><a href="/events/policy" className="hover:underline hover:text-[#2bbecb]">Policy & Governance</a></li>
-              <li><a href="/events/innovation" className="hover:underline hover:text-[#2bbecb]">Innovation & Technology</a></li>
-              <li><a href="/events/culture" className="hover:underline hover:text-[#2bbecb]">Arts & Culture</a></li>
-              <li><a href="/events/business" className="hover:underline hover:text-[#2bbecb]">Business & Entrepreneurship</a></li>
-              <a href="/events" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline">
+            <ul className="mb-4 space-y-4">
+              <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>Upcoming Events</h2>
+              <li><a href="/events/leadership" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Leadership Development</a></li>
+              <li><a href="/events/policy" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Policy & Governance</a></li>
+              <li><a href="/events/innovation" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Innovation & Technology</a></li>
+              <li><a href="/events/culture" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Arts & Culture</a></li>
+              <li><a href="/events/business" className="text-[#3b3b3b] hover:underline hover:text-[#2bbecb]">Business & Entrepreneurship</a></li>
+              <a href="/events" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline text-[15px] font-medium">
                 Learn How You Can Be Part of Our Events <FiArrowRight className="ml-2" />
               </a>
             </ul>
 
             {/* Column 3 */}
             <div>
-              <h2 className="uppercase font-bold">Browse Our Past Events</h2>
+            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
+              Browse Our Past Events</h2>
               {[1, 2, 3].map((event) => (
                 <div key={event} className="mb-4">
-                  <h3 className="font-bold hover:text-[#2bbecb]">
+                  <h3 className="font-bold text-[#3b3b3b] hover:text-[#2bbecb]">
                     Event Title {event}
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-[#444]">
                     Theme: Brief description of the past event.
                   </p>
-                  <p className="text-sm text-gray-500">Date: [Event Date]</p>
+                  <p className="text-[#444]">Date: [Event Date]</p>
                 </div>
               ))}
               
