@@ -57,9 +57,15 @@ const Navbar = () => {
 
       {/* Main Navigation */}
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-        <a href="/" className="flex items-center space-x-3">
-          <img src={LOGO} className="h-8" alt="Leo Africa Institute Logo" />
-        </a>
+      <a href="/" className="flex items-center space-x-3">
+  <img 
+    src={LOGO} 
+    className="h-10" 
+    alt="Leo Africa Institute Logo" 
+    style={{ height: 'calc(8rem * 0.4)' }} // Inline styles for precise 20% scaling
+  />
+</a>
+
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 transition duration-300"
@@ -73,34 +79,35 @@ const Navbar = () => {
           } w-full md:flex md:w-auto md:order-1 transition-transform duration-500 ease-in-out`}
         >
           <ul className="flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8">
-            {['About Us', 'Events & Gatherings', 'Fellows & Champions', 'News & Media', 'Initiatives'].map(
-              (menu) => (
-                <li key={menu}>
-                  <button
-                    onClick={() => handleMenuToggle(menu)}
-                    className="flex items-center justify-between w-full py-2 px-3 font-medium text-gray-900 md:w-auto hover:text-[#2bbecb] md:p-0 transition duration-300"
-                  >
-                    {menu}
-                    <svg
-                      className="w-2.5 h-2.5 ms-3"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m1 1 4 4 4-4"
-                      />
-                    </svg>
-                  </button>
-                </li>
-              )
-            )}
-          </ul>
+  {['About Us', 'Events & Gatherings', 'Fellows & Champions', 'News & Media', 'Initiatives'].map(
+    (menu) => (
+      <li key={menu}>
+        <button
+          onClick={() => handleMenuToggle(menu)}
+          className="flex items-center justify-between w-full py-2 px-3 text-lg font-bold text-gray-900 md:w-auto hover:text-[#2bbecb] md:p-0 transition duration-300"
+        >
+          {menu}
+          <svg
+            className="w-2.5 h-2.5 ms-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1 1 4 4 4-4"
+            />
+          </svg>
+        </button>
+      </li>
+    )
+  )}
+</ul>
+
         </div>
       </div>
 

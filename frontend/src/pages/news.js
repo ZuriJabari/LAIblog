@@ -34,6 +34,7 @@ const NewsComponent = ({ data }) => {
           </div>
         </div>
       </section>
+      <div className='prefooter-gray'></div>
 
       {/* Featured News Section */}
       <div className="container mx-auto px-6 lg:px-20 py-10">

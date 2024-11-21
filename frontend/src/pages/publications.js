@@ -128,6 +128,7 @@ const PublicationsComponent = ({ data }) => {
           </div>
         </div>
       </section>
+      <div className='prefooter'></div>
 
       {/* Publications Section */}
       <div className="container mx-auto px-6 lg:px-20 py-10">
