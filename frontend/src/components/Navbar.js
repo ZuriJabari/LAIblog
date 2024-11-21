@@ -7,6 +7,10 @@ import ALGLogo from '../assets/images/alg-color.svg';
 import HudumaLogo from '../assets/images/huduma-logo.svg';
 import ReviewLogo from '../assets/images/LAR-logo.png';
 import YelpLogo from '../assets/images/YELP-Logo.svg';
+import { useStaticQuery, graphql } from "gatsby";
+import { Link } from 'gatsby';
+import ALGICON from '../assets/images/alg-icon.png';
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,6 +45,31 @@ const Navbar = () => {
     cursor: 'default', 
     fontWeight: '400' 
   };
+
+  // Add this Prismic query
+  const data = useStaticQuery(graphql`
+    query {
+      allPrismicBlogPosts(
+        sort: { data: { publish_date: DESC } }
+        limit: 3
+      ) {
+        nodes {
+          uid
+          data {
+            title
+            publish_date(formatString: "MMMM D, YYYY")
+            author
+            featured_image {
+              url
+              alt
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const blogPosts = data.allPrismicBlogPosts.nodes;
 
   return (
     <nav className="bg-white border-gray-200 shadow-md">
@@ -180,18 +209,64 @@ const Navbar = () => {
                 View All Categories <FiArrowRight className="ml-2" />
               </a>
             </ul>
+            {/* Third Column - Latest Blog Posts */}
             <div>
-            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
-            LATEST FROM THE BLOG</h2>
-              {[1, 2, 3].map((blog) => (
-                <div key={blog} className="mb-4">
-                  <h3 className="font-bold text-[#3b3b3b] hover:text-[#2bbecb]">Blog Title {blog}</h3>
-                  <p className="text-sm text-[#444]">Brief description of the blog post.</p>
+              <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" 
+                  style={{ letterSpacing: '2px', fontSize: '13px', color: '#888', cursor: 'default', fontWeight: '500' }}>
+                LATEST FROM NEWS
+              </h2>
+              
+              {blogPosts.map((post, index) => (
+                <div key={post.uid} className="mb-6 group">
+                  <div className="flex space-x-4">
+                    {/* Image Container */}
+                    <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg">
+                      {post.data.featured_image?.url && (
+                        <img
+                          src={post.data.featured_image.url}
+                          alt={post.data.featured_image.alt || post.data.title}
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                        />
+                      )}
+                    </div>
+                    
+                    {/* Content Container */}
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-[16px] text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2">
+                        <Link to={`/blog/${post.uid}`}>
+                          {post.data.title || "Untitled Post"}
+                        </Link>
+                      </h3>
+                      
+                      <div className="flex items-center space-x-2 text-[13px] text-[#666] mb-2">
+                        <span className="text-[#666]">
+                          {post.data.author || "Unknown Author"}
+                        </span>
+                        <span>•</span>
+                        <time className="text-[#666]">
+                          {post.data.publish_date || "Unknown Date"}
+                        </time>
+                      </div>
+                      
+                      
+                    </div>
+                  </div>
+                  
+                  {/* Separator line except for last item */}
+                  {index !== 2 && (
+                    <div className="mt-4 border-b border-gray-100"></div>
+                  )}
                 </div>
               ))}
-              <a href="/blog" className="inline-flex items-center mt-4 text-[#f6911e] hover:underline">
-                Browse Our Blogs <FiArrowRight className="ml-2" />
-              </a>
+              
+              {/* View All Posts Link */}
+              <Link 
+                to="/blog" 
+                className="inline-flex items-center mt-2 text-[15px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+              >
+                View All News 
+                <FiArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
             </div>
           </div>
         </div>
@@ -253,51 +328,193 @@ const Navbar = () => {
               </form>
             </ul>
             {/* Third Column */}
+            
             <div>
-            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
-              Latest News</h2>
-              {[1, 2, 3].map((news) => (
-                <div key={news} className="mb-4">
+              <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" 
+                  style={{ letterSpacing: '2px', fontSize: '13px', color: '#888', cursor: 'default', fontWeight: '500' }}>
+                LATEST INSIGHTS
+              </h2>
+              
+              {blogPosts.map((post, index) => (
+                <div key={post.uid} className="mb-6 group">
+                  <div className="flex space-x-4">
+                    {/* Image Container */}
+                    <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg">
+                      {post.data.featured_image?.url && (
+                        <img
+                          src={post.data.featured_image.url}
+                          alt={post.data.featured_image.alt || post.data.title}
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                        />
+                      )}
+                    </div>
+                    
+                    {/* Content Container */}
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-[16px] text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2">
+                        <Link to={`/blog/${post.uid}`}>
+                          {post.data.title || "Untitled Post"}
+                        </Link>
+                      </h3>
+                      
+                      <div className="flex items-center space-x-2 text-[13px] text-[#666] mb-2">
+                        <span className="text-[#666]">
+                          {post.data.author || "Unknown Author"}
+                        </span>
+                        <span>•</span>
+                        <time className="text-[#666]">
+                          {post.data.publish_date || "Unknown Date"}
+                        </time>
+                      </div>
+                      
+                    </div>
+                  </div>
                   
-                  <a href={`/news/${news}`} className="block hover:text-[#2bbecb] font-bold">
-                    News Title {news}
-                  </a>
-                  <p className="text-[#444]">Date: [Publish Date]</p>
-                  <p className="text-[#444]">
-                    Brief description of the news.
-                  </p>
-                  <a
-                    href={`/news/${news}`}
-                    className="text-sm text-[#2bbecb] hover:underline"
-                  >
-                    Read More
-                  </a>
+                  {/* Separator line except for last item */}
+                  {index !== 2 && (
+                    <div className="mt-4 border-b border-gray-100"></div>
+                  )}
                 </div>
               ))}
+              
+              {/* View All Posts Link */}
+              <Link 
+                to="/blog" 
+                className="inline-flex items-center mt-2 text-[15px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+              >
+                View All News 
+                <FiArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
             </div>
+
           </div>
         </div>
       )}
 
-       {/* Initiatives Menu */}
+       {/* Initiatives Dropdown */}
       {activeMenu === 'Initiatives' && (
         <div className="mt-1 bg-white border-gray-200 shadow-sm border-y">
-          <div className="text-center py-4">
-            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
-            What We Are Doing</h2>
-          </div>
-          <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-4 md:px-6 gap-6">
-            {/* Columns for initiatives */}
-            {[ALGLogo, HudumaLogo, ReviewLogo, YelpLogo].map((logo, idx) => (
-              <div key={idx} className="text-center mb-4">
-                <img src={logo} alt={`Initiative ${idx + 1}`} className="mb-4 w-full h-32 object-cover rounded-lg" />
-                <h3 className="font-bold text-[#3b3b3b] mb-2">Initiative {idx + 1}</h3>
-                <p className="text-[#444] mb-4">Brief description about the initiative.</p>
-                <a href="#" className="inline-flex items-center text-[#f6911e] hover:underline">
-                  Learn More <FiArrowRight className="ml-2" />
-                </a>
+          <div className="max-w-screen-xl px-4 py-8 mx-auto">
+            {/* Section Title */}
+            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-6" 
+                style={{ letterSpacing: '2px', fontSize: '13px', color: '#888', cursor: 'default', fontWeight: '500' }}>
+              What We Are Doing
+            </h2>
+
+            <div className="grid grid-cols-2 gap-8">
+              {/* Left Column - Featured Initiative */}
+              <div className="bg-gray-50 rounded-2xl p-6 flex items-center group hover:bg-gray-100 transition-all duration-300">
+                <div className="w-40 h-40 flex-shrink-0 mr-8">
+                  <img
+                    src={ALGLogo}
+                    alt="Annual Leaders Gathering"
+                    className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-[22px] font-bold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-3">
+                    Annual Leaders Gathering
+                  </h3>
+                  <p className="text-[15px] text-[#666] leading-relaxed mb-4">
+                    Our flagship event bringing together visionaries and leaders from across Africa for inspiring sessions and transformative conversations.
+                  </p>
+                  <a 
+                    href="https://alg.leoafricainstitute.org" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-[15px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+                  >
+                    Learn More <FiArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
+                </div>
               </div>
-            ))}
+
+              {/* Right Column - Other Initiatives Grid */}
+              <div className="grid grid-cols-2 gap-6">
+                {/* YELP Fellowship */}
+                <div className="bg-gray-50 rounded-xl p-5 group hover:bg-gray-100 transition-all duration-300">
+                  <div className="w-28 h-28 mx-auto mb-4">
+                    <img
+                      src={YelpLogo}
+                      alt="YELP Fellowship"
+                      className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-[17px] font-semibold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2">
+                      YELP Fellowship
+                    </h3>
+                    <p className="text-[14px] text-[#666] leading-relaxed mb-3">
+                      Training outstanding thought leaders in values and social responsibility.
+                    </p>
+                    <a 
+                      href="https://yelp.leoafricainstitute.org" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center text-[14px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+                    >
+                      Learn More <FiArrowRight className="ml-1.5 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Huduma Fellowship */}
+                <div className="bg-gray-50 rounded-xl p-5 group hover:bg-gray-100 transition-all duration-300">
+                  <div className="w-28 h-28 mx-auto mb-4">
+                    <img
+                      src={HudumaLogo}
+                      alt="Huduma Fellowship"
+                      className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-[17px] font-semibold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2">
+                      Huduma Fellowship
+                    </h3>
+                    <p className="text-[14px] text-[#666] leading-relaxed mb-3">
+                      Training emerging civic & public sector champions in Uganda.
+                    </p>
+                    <a 
+                      href="https://huduma.leoafricainstitute.org" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center text-[14px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+                    >
+                      Learn More <FiArrowRight className="ml-1.5 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* LéO Africa Review - Full Width */}
+                <div className="col-span-2 bg-gray-50 rounded-xl p-5 group hover:bg-gray-100 transition-all duration-300">
+                  <div className="flex items-center">
+                    <div className="w-28 h-28 flex-shrink-0 mr-6">
+                      <img
+                        src={ReviewLogo}
+                        alt="LéO Africa Review"
+                        className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-[17px] font-semibold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2">
+                        LéO Africa Review
+                      </h3>
+                      <p className="text-[14px] text-[#666] leading-relaxed mb-3">
+                        Digital platform for thought-provoking insights on African leadership and development.
+                      </p>
+                      <a 
+                        href="https://leoafricareview.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-[14px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+                      >
+                        Read More <FiArrowRight className="ml-1.5 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -397,23 +614,47 @@ const Navbar = () => {
 
             {/* Column 3 */}
             <div>
-            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" style={columnTitleStyle}>
-              Browse Our Past Events</h2>
-              {[1, 2, 3].map((event) => (
-                <div key={event} className="mb-4">
-                  <h3 className="font-bold text-[#3b3b3b] hover:text-[#2bbecb]">
-                    Event Title {event}
-                  </h3>
-                  <p className="text-sm text-[#444]">
-                    Theme: Brief description of the past event.
-                  </p>
-                  <p className="text-[#444]">Date: [Event Date]</p>
+            <h2 className="text-xs uppercase font-normal text-gray-600 pb-1 mb-5" 
+                style={{ letterSpacing: '2px', fontSize: '13px', color: '#888', cursor: 'default', fontWeight: '500' }}>
+              Our Flagship Event
+            </h2>
+              {/* First Column - Our Flagship Event */}
+              <div>
+                <div className="group flex items-start space-x-4">
+                  {/* ALG Logo - Left Side */}
+                  <div className="flex-shrink-0 w-24 h-24 overflow-hidden rounded-lg">
+                    <img
+                      src={ALGICON}
+                      alt="Annual Leaders Gathering"
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  {/* Content - Right Side */}
+                  <div className="flex-1">
+                    {/* ALG Title */}
+                    <h3 className="text-[16px] font-semibold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2">
+                      Annual Leaders Gathering (ALG)
+                    </h3>
+                    
+                    {/* ALG Description */}
+                    <p className="text-[14px] text-[#666] leading-relaxed mb-3">
+                      The Annual Leaders Gathering (ALG) is a premier leadership forum that brings together emerging African leaders to engage in meaningful dialogue, share experiences, and forge partnerships for Africa's development.
+                    </p>
+                    
+                    {/* Learn More Link */}
+                    <a 
+                      href="https://alg.leoafricainstitute.org" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-[14px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+                    >
+                      Learn More 
+                      <FiArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </a>
+                  </div>
                 </div>
-              ))}
-              
-              <a href="/past-events" className="inline-flex items-center text-[#f6911e] hover:underline">
-                View All Past Events <FiArrowRight className="ml-2" />
-              </a>
+              </div>
             </div>
           </div>
         </div>

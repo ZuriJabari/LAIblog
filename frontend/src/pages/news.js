@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { graphql, Link } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import NewsHeroImage from "../assets/images/news-hero.jpg";
 
 const NewsComponent = ({ data }) => {
