@@ -31,6 +31,7 @@ const Navbar = () => {
     navigate(`/searchResults?query=${searchQuery}`);
   };
 
+
   return (
     <nav className="bg-white border-gray-200 shadow-md">
       {/* Top Bar */}
@@ -57,27 +58,28 @@ const Navbar = () => {
             Get Involved
           </a>
           <a href="/get-involved" className="hover:text-[#2bbecb] transition duration-300">
-            Partner with Us
+          Partner with Us
           </a>
           <a href="/get-involved" className="hover:text-[#2bbecb] transition duration-300">
-            Contact Us
+             Contact Us
           </a>
+          
         </div>
       </div>
 
       {/* Search Bar */}
       {isSearchOpen && (
-        <div className="bg-gray-100 py-4 px-6">
-          <form onSubmit={handleSearchSubmit} className="flex items-center bg-white border border-gray-300 rounded-full shadow-md overflow-hidden">
+        <div className="bg-gray-100 py-2 px-4">
+          <form onSubmit={handleSearchSubmit} className="flex items-center">
             <input
               type="text"
               value={searchQuery}
               onChange={handleSearchChange}
               placeholder="Search..."
-              className="flex-1 px-4 py-2 text-sm focus:outline-none"
+              className="flex-1 bg-white border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2bbecb]"
             />
-            <button type="submit" className="bg-[#2bbecb] text-white px-6 py-2 rounded-full">
-              <FiSearch className="w-5 h-5" />
+            <button type="submit" className="ml-2 bg-[#2bbecb] text-white px-4 py-2 rounded-md">
+              Search
             </button>
           </form>
         </div>

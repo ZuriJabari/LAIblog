@@ -10,6 +10,7 @@ exports.components = {
   "component---src-pages-2022-alg-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/2022-alg.js")),
   "component---src-pages-2023-alg-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/2023-alg.js")),
   "component---src-pages-404-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/404.js")),
+  "component---src-pages-about-history-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/about/history.js")),
   "component---src-pages-about-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/about.js")),
   "component---src-pages-blog-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/blog.js")),
   "component---src-pages-contact-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/contact.js")),

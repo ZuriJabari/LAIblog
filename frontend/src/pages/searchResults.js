@@ -13,14 +13,14 @@ const SearchResults = ({ data, location }) => {
     <Layout>
       {/* Hero Section */}
       <section className="bg-gray-800 text-white py-12">
-        <div className="container mx-auto px-4">
+        <div className="max-w-screen-xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">Search Results</h1>
           <p className="text-lg">Showing results for: <span className="font-semibold">{searchQuery}</span></p>
           <p className="text-sm mt-2">Explore the articles and insights related to your search term.</p>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
+      <div className="max-w-screen-xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
         {/* Main Content Area */}
         <div className="flex-1">
           {results.length > 0 ? (

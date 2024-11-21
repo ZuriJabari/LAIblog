@@ -5,6 +5,7 @@ exports.components = {
   "component---src-pages-2022-alg-js": () => import("./../../../src/pages/2022-alg.js?export=default" /* webpackChunkName: "component---src-pages-2022-alg-js" */),
   "component---src-pages-2023-alg-js": () => import("./../../../src/pages/2023-alg.js?export=default" /* webpackChunkName: "component---src-pages-2023-alg-js" */),
   "component---src-pages-404-js": () => import("./../../../src/pages/404.js?export=default" /* webpackChunkName: "component---src-pages-404-js" */),
+  "component---src-pages-about-history-js": () => import("./../../../src/pages/about/history.js?export=default" /* webpackChunkName: "component---src-pages-about-history-js" */),
   "component---src-pages-about-js": () => import("./../../../src/pages/about.js?export=default" /* webpackChunkName: "component---src-pages-about-js" */),
   "component---src-pages-blog-js": () => import("./../../../src/pages/blog.js?export=default" /* webpackChunkName: "component---src-pages-blog-js" */),
   "component---src-pages-contact-js": () => import("./../../../src/pages/contact.js?export=default" /* webpackChunkName: "component---src-pages-contact-js" */),
