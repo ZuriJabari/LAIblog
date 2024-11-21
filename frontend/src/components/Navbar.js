@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { FiSearch, FiGlobe, FiArrowRight, FiMenu, FiX } from 'react-icons/fi';
+import { FiSearch, FiArrowRight, FiMenu, FiX } from 'react-icons/fi';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { navigate } from 'gatsby';
 import LOGO from '../assets/images/Leo-logo-primary.png';
 import ALGLogo from '../assets/images/alg-color.svg';
 import HudumaLogo from '../assets/images/huduma-logo.svg';
@@ -12,7 +13,6 @@ const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [language, setLanguage] = useState("en");
 
   const handleMenuToggle = (menu) => {
     setActiveMenu((prevMenu) => (prevMenu === menu ? null : menu));
@@ -28,14 +28,7 @@ const Navbar = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    // Implement search functionality here
-    console.log("Search query:", searchQuery);
-  };
-
-  const handleLanguageChange = (e) => {
-    setLanguage(e.target.value);
-    // Implement language change functionality here
-    console.log("Language changed to:", e.target.value);
+    navigate(`/searchResults?query=${searchQuery}`);
   };
 
   return (
@@ -63,31 +56,28 @@ const Navbar = () => {
           <a href="/get-involved" className="hover:text-[#2bbecb] transition duration-300">
             Get Involved
           </a>
-          <select
-            value={language}
-            onChange={handleLanguageChange}
-            className="bg-white border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#2bbecb]"
-          >
-            <option value="en">EN</option>
-            <option value="fr">FR</option>
-            <option value="es">ES</option>
-          </select>
+          <a href="/get-involved" className="hover:text-[#2bbecb] transition duration-300">
+            Partner with Us
+          </a>
+          <a href="/get-involved" className="hover:text-[#2bbecb] transition duration-300">
+            Contact Us
+          </a>
         </div>
       </div>
 
       {/* Search Bar */}
       {isSearchOpen && (
-        <div className="bg-gray-100 py-2 px-4">
-          <form onSubmit={handleSearchSubmit} className="flex items-center">
+        <div className="bg-gray-100 py-4 px-6">
+          <form onSubmit={handleSearchSubmit} className="flex items-center bg-white border border-gray-300 rounded-full shadow-md overflow-hidden">
             <input
               type="text"
               value={searchQuery}
               onChange={handleSearchChange}
               placeholder="Search..."
-              className="flex-1 bg-white border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2bbecb]"
+              className="flex-1 px-4 py-2 text-sm focus:outline-none"
             />
-            <button type="submit" className="ml-2 bg-[#2bbecb] text-white px-4 py-2 rounded-md">
-              Search
+            <button type="submit" className="bg-[#2bbecb] text-white px-6 py-2 rounded-full">
+              <FiSearch className="w-5 h-5" />
             </button>
           </form>
         </div>
