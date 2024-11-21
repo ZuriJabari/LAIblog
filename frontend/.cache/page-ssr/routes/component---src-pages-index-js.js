@@ -200,8 +200,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.mjs");
-/* harmony import */ var _assets_images_hero_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/images/hero.jpg */ "./src/assets/images/hero.jpg");
-/* harmony import */ var _assets_images_hero2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/images/hero2.jpg */ "./src/assets/images/hero2.jpg");
+/* harmony import */ var _assets_images_ALG24_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/images/ALG24.jpg */ "./src/assets/images/ALG24.jpg");
+/* harmony import */ var _assets_images_hero_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/images/hero.jpg */ "./src/assets/images/hero.jpg");
 /* harmony import */ var _assets_images_hero3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/hero3.jpg */ "./src/assets/images/hero3.jpg");
 /* harmony import */ var _assets_images_hero4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/images/hero4.jpg */ "./src/assets/images/hero4.jpg");
 
@@ -211,15 +211,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const slides = [{
-  image: _assets_images_hero_jpg__WEBPACK_IMPORTED_MODULE_1__["default"],
-  title: "The 2024 Annual Leaders Gathering",
-  date: "14th & 16th Nov 2024 | Sheraton Kampala Hotel",
-  description: "The Annual Leaders Gathering is LéO Africa Institute’s flagship event, uniting our growing network of leaders for impactful conversations, networking, and essential dialogues to address the challenges of our times.",
-  h3: "Our Next Major Event",
-  ctaText: "Reserve Your Seat",
-  ctaLink: "/register"
+  image: _assets_images_ALG24_jpg__WEBPACK_IMPORTED_MODULE_1__["default"],
+  title: "The Annual Leaders Gathering",
+  description: "The Annual Leaders Gathering is LéO Africa Institute’s flagship event, uniting our growing network of leaders for impactful conversations, networking, and essential dialogues to address the challenges of our times. Our most recent gathering took place on 14th & 16th Nov 2024 at the Sheraton Kampala Hotel",
+  h3: "Our Flagship Event",
+  ctaText: "Catch up with #ALG2024",
+  ctaLink: "https://www.alg.leoafricainstitute.org/speakers"
 }, {
-  image: _assets_images_hero2_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  image: _assets_images_hero_jpg__WEBPACK_IMPORTED_MODULE_2__["default"],
   title: "We're Empowering Africa's Future Leaders",
   description: "The LéO Africa Institute empowers young African leaders to create a sustainable, inclusive future through transformative programs and impactful dialogues. We focus on leadership development, ethical entrepreneurship, and thought leadership, fostering a community of change-makers dedicated to reshaping Africa's narrative and advancing its next generation of leaders.",
   h3: "Who we are",
@@ -266,7 +265,7 @@ const HeroSection = () => {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 7000);
+    }, 12000);
     return () => clearInterval(interval);
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
@@ -1284,6 +1283,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/assets/images/ALG24.jpg":
+/*!*************************************!*\
+  !*** ./src/assets/images/ALG24.jpg ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/static/ALG24-5e15dba1248ee993e2f5a10b904a5e44.jpg");
+
+/***/ }),
+
 /***/ "./src/assets/images/KAS_Logo_Original.png":
 /*!*************************************************!*\
   !*** ./src/assets/images/KAS_Logo_Original.png ***!
@@ -1309,20 +1322,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/static/hero-cbfa375e27933dda4663665a0e26a6d3.jpg");
-
-/***/ }),
-
-/***/ "./src/assets/images/hero2.jpg":
-/*!*************************************!*\
-  !*** ./src/assets/images/hero2.jpg ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/static/hero2-c1e77700792410799e77b8c6c29a8a90.jpg");
 
 /***/ }),
 

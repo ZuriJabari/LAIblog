@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
-import heroImage1 from '../assets/images/hero.jpg';
-import heroImage2 from '../assets/images/hero2.jpg';
+import heroImage1 from '../assets/images/ALG24.jpg';
+import heroImage2 from '../assets/images/hero.jpg';
 import heroImage3 from '../assets/images/hero3.jpg';
 import heroImage4 from '../assets/images/hero4.jpg';
 
 const slides = [
   { 
     image: heroImage1, 
-    title: "The 2024 Annual Leaders Gathering", 
-    date: "14th & 16th Nov 2024 | Sheraton Kampala Hotel",
-    description: "The Annual Leaders Gathering is LéO Africa Institute’s flagship event, uniting our growing network of leaders for impactful conversations, networking, and essential dialogues to address the challenges of our times.",
-    h3: "Our Next Major Event",
-    ctaText: "Reserve Your Seat",
-    ctaLink: "/register"
+    title: "The Annual Leaders Gathering", 
+    description: "The Annual Leaders Gathering is LéO Africa Institute’s flagship event, uniting our growing network of leaders for impactful conversations, networking, and essential dialogues to address the challenges of our times. Our most recent gathering took place on 14th & 16th Nov 2024 at the Sheraton Kampala Hotel",
+    h3: "Our Flagship Event",
+    ctaText: "Catch up with #ALG2024",
+    ctaLink: "https://www.alg.leoafricainstitute.org/speakers"
   },
   { 
     image: heroImage2, 
@@ -64,7 +63,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 7000);
+    }, 12000);
     return () => clearInterval(interval);
   }, []);
 

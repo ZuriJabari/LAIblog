@@ -3977,16 +3977,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.mjs");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-/* harmony import */ var _assets_images_Leo_logo_primary_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/images/Leo-logo-primary.png */ "./src/assets/images/Leo-logo-primary.png");
-/* harmony import */ var _assets_images_alg_color_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/alg-color.svg */ "./src/assets/images/alg-color.svg");
-/* harmony import */ var _assets_images_huduma_logo_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/images/huduma-logo.svg */ "./src/assets/images/huduma-logo.svg");
-/* harmony import */ var _assets_images_LAR_logo_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/LAR-logo.png */ "./src/assets/images/LAR-logo.png");
-/* harmony import */ var _assets_images_YELP_Logo_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/YELP-Logo.svg */ "./src/assets/images/YELP-Logo.svg");
+/* harmony import */ var _public_page_data_sq_d_3764181749_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/page-data/sq/d/3764181749.json */ "./public/page-data/sq/d/3764181749.json");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.mjs");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
+/* harmony import */ var _assets_images_Leo_logo_primary_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/images/Leo-logo-primary.png */ "./src/assets/images/Leo-logo-primary.png");
+/* harmony import */ var _assets_images_alg_color_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/images/alg-color.svg */ "./src/assets/images/alg-color.svg");
+/* harmony import */ var _assets_images_huduma_logo_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/huduma-logo.svg */ "./src/assets/images/huduma-logo.svg");
+/* harmony import */ var _assets_images_LAR_logo_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/LAR-logo.png */ "./src/assets/images/LAR-logo.png");
+/* harmony import */ var _assets_images_YELP_Logo_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/images/YELP-Logo.svg */ "./src/assets/images/YELP-Logo.svg");
+/* harmony import */ var _assets_images_alg_icon_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../assets/images/alg-icon.png */ "./src/assets/images/alg-icon.png");
+
+
+
 
 
 
@@ -4000,19 +4005,19 @@ const Navbar = () => {
   const {
     0: isMenuOpen,
     1: setIsMenuOpen
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
   const {
     0: activeMenu,
     1: setActiveMenu
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
   const {
     0: searchQuery,
     1: setSearchQuery
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
   const {
     0: isSearchOpen,
     1: setIsSearchOpen
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
   const handleMenuToggle = menu => {
     setActiveMenu(prevMenu => prevMenu === menu ? null : menu);
   };
@@ -4024,7 +4029,7 @@ const Navbar = () => {
   };
   const handleSearchSubmit = e => {
     e.preventDefault();
-    (0,gatsby__WEBPACK_IMPORTED_MODULE_1__.navigate)(`/searchResults?query=${searchQuery}`);
+    (0,gatsby__WEBPACK_IMPORTED_MODULE_2__.navigate)(`/searchResults?query=${searchQuery}`);
   };
 
   // Common h2 style for all dropdown menus
@@ -4038,423 +4043,566 @@ const Navbar = () => {
     cursor: 'default',
     fontWeight: '400'
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
+
+  // Add this Prismic query
+  const data = _public_page_data_sq_d_3764181749_json__WEBPACK_IMPORTED_MODULE_0__.data;
+  const blogPosts = data.allPrismicBlogPosts.nodes;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("nav", {
     className: "bg-white border-gray-200 shadow-md"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "max-w-screen-xl mx-auto flex justify-between items-center py-3 px-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "hidden md:flex space-x-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "https://facebook.com",
     className: "hover:text-[#2bbecb] transition duration-300"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaFacebookF, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_9__.FaFacebookF, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "https://twitter.com",
     className: "hover:text-[#2bbecb] transition duration-300"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaTwitter, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_9__.FaTwitter, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "https://linkedin.com",
     className: "hover:text-[#2bbecb] transition duration-300"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaLinkedinIn, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_9__.FaLinkedinIn, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "https://instagram.com",
     className: "hover:text-[#2bbecb] transition duration-300"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaInstagram, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_9__.FaInstagram, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "flex items-center space-x-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
     onClick: handleSearchToggle,
     className: "hover:text-[#2bbecb] transition duration-300"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiSearch, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiSearch, {
     className: "w-5 h-5"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/get-involved",
     className: "hover:text-[#2bbecb] transition duration-300"
-  }, "Get Involved"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Get Involved"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/get-involved",
     className: "hover:text-[#2bbecb] transition duration-300"
-  }, "Partner with Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Partner with Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/get-involved",
     className: "hover:text-[#2bbecb] transition duration-300"
-  }, "Contact Us"))), isSearchOpen && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "Contact Us"))), isSearchOpen && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "bg-gray-100 py-2 px-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("form", {
     onSubmit: handleSearchSubmit,
     className: "flex items-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", {
     type: "text",
     value: searchQuery,
     onChange: handleSearchChange,
     placeholder: "Search...",
     className: "flex-1 bg-white border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2bbecb]"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
     type: "submit",
     className: "ml-2 bg-[#2bbecb] text-white px-4 py-2 rounded-md"
-  }, "Search"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "Search"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "w-full h-px bg-gray-300"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/",
     className: "flex items-center space-x-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: _assets_images_Leo_logo_primary_png__WEBPACK_IMPORTED_MODULE_2__["default"],
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
+    src: _assets_images_Leo_logo_primary_png__WEBPACK_IMPORTED_MODULE_3__["default"],
     className: "h-10",
     alt: "Leo Africa Institute Logo",
     style: {
       height: 'calc(8rem * 0.4)'
     } // Inline styles for precise 20% scaling
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
     onClick: () => setIsMenuOpen(!isMenuOpen),
     className: "inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 transition duration-300"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
     className: "sr-only"
-  }, "Open main menu"), isMenuOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiX, {
+  }, "Open main menu"), isMenuOpen ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiX, {
     className: "w-5 h-5"
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiMenu, {
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiMenu, {
     className: "w-5 h-5"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: `${isMenuOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1 transition-transform duration-500 ease-in-out`
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", {
     className: "flex flex-col mt-4 font-medium md:flex-row md:mt-0 md:space-x-8"
-  }, ['About Us', 'Events & Gatherings', 'Fellows & Champions', 'News & Media', 'Initiatives'].map(menu => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+  }, ['About Us', 'Events & Gatherings', 'Fellows & Champions', 'News & Media', 'Initiatives'].map(menu => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", {
     key: menu
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
     onClick: () => handleMenuToggle(menu),
     className: "flex items-center justify-between w-full py-2 px-3 text-lg font-bold text-gray-900 md:w-auto hover:text-[#2bbecb] md:p-0 transition duration-300"
-  }, menu, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+  }, menu, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", {
     className: "w-2.5 h-2.5 ms-3",
     "aria-hidden": "true",
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 10 6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", {
     stroke: "currentColor",
     strokeLinecap: "round",
     strokeLinejoin: "round",
     strokeWidth: "2",
     d: "m1 1 4 4 4-4"
-  })))))))), activeMenu === 'News & Media' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })))))))), activeMenu === 'News & Media' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "mt-1 bg-white border-gray-200 shadow-sm border-y"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-3 md:px-6 gap-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", {
     className: "mb-4 space-y-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
     className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
-    style: {
-      letterSpacing: '2px',
-      fontSize: '13px',
-      color: '#888',
-      cursor: 'default',
-      fontWeight: '500' // Slightly bolder
-    }
-  }, "BY TYPE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    style: columnTitleStyle
+  }, "BY TYPE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/news/articles",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Articles")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Articles")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/news/founders-blog",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Founder's Blog")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Founder's Blog")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/news/research-reports",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Research Reports")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Research Reports")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/news/podcasts",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Podcasts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Podcasts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/news/videos",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Videos")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Videos")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/news",
     className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline text-[15px] font-medium"
-  }, "View All Insights & Research ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
+  }, "View All Insights & Research ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
     className: "ml-2"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", {
     className: "mb-4 space-y-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
+    style: columnTitleStyle
+  }, "BY CATEGORY"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "/news/coaching",
+    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
+  }, "Coaching & Conversation Skills")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "/news/dei",
+    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
+  }, "DEI / EDI")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "/news/supporting-development",
+    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
+  }, "Supporting & Scaling Development")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "/news/team-leadership",
+    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
+  }, "Team Leadership")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "/news/women-leadership",
+    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
+  }, "Women in Leadership")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "/news/categories",
+    className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline text-[15px] font-medium"
+  }, "View All Categories ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
+    className: "ml-2"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
     className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
     style: {
       letterSpacing: '2px',
       fontSize: '13px',
       color: '#888',
       cursor: 'default',
-      fontWeight: '500' // Slightly bolder
+      fontWeight: '500'
     }
-  }, "BY CATEGORY"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/news/coaching",
-    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Coaching & Conversation Skills")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/news/dei",
-    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "DEI / EDI")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/news/supporting-development",
-    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Supporting & Scaling Development")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/news/team-leadership",
-    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Team Leadership")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/news/women-leadership",
-    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Women in Leadership")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/news/categories",
-    className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline text-[15px] font-medium"
-  }, "View All Categories ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
-    className: "ml-2"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "uppercase font-bold"
-  }, "LATEST FROM THE BLOG"), [1, 2, 3].map(blog => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    key: blog,
-    className: "mb-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "font-bold text-[#3b3b3b] hover:text-[#2bbecb]"
-  }, "Blog Title ", blog), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-sm text-[#444]"
-  }, "Brief description of the blog post."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/blog",
-    className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline"
-  }, "Browse Our Blogs ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
-    className: "ml-2"
-  }))))), activeMenu === 'About Us' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "LATEST FROM NEWS"), blogPosts.map((post, index) => {
+    var _post$data$featured_i;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      key: post.uid,
+      className: "mb-6 group"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "flex space-x-4"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg"
+    }, ((_post$data$featured_i = post.data.featured_image) === null || _post$data$featured_i === void 0 ? void 0 : _post$data$featured_i.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
+      src: post.data.featured_image.url,
+      alt: post.data.featured_image.alt || post.data.title,
+      className: "w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "flex-1"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h3", {
+      className: "font-semibold text-[16px] text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      to: `/blog/${post.uid}`
+    }, post.data.title || "Untitled Post")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "flex items-center space-x-2 text-[13px] text-[#666] mb-2"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
+      className: "text-[#666]"
+    }, post.data.author || "Unknown Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, "\u2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("time", {
+      className: "text-[#666]"
+    }, post.data.publish_date || "Unknown Date")))), index !== 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "mt-4 border-b border-gray-100"
+    }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/blog",
+    className: "inline-flex items-center mt-2 text-[15px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+  }, "View All News", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
+    className: "ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+  }))))), activeMenu === 'About Us' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "mt-1 bg-white border-gray-200 shadow-sm border-y"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-3 md:px-6 gap-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", {
     className: "mb-4 space-y-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-xs uppercase font-normal text-gray-600 pb-1",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
     style: columnTitleStyle
-  }, "Our Story"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Our Story"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/about/history",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Our History")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Our History")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/about/mission",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Mission & Vision")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Mission & Vision")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/about/team",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "The Team")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "The Team")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/about/partners",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Our Partners")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Our Partners")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/about/awards",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Awards & Accolades")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Awards & Accolades")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/about/faq",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Frequently Asked Questions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Frequently Asked Questions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/about",
     className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline"
-  }, "Learn More About Us ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
+  }, "Learn More About Us ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
     className: "ml-2"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", {
     className: "mb-4 space-y-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "uppercase font-bold"
-  }, "Connect"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
+    style: columnTitleStyle
+  }, "Connect"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/contact",
-    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed"
+  }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/get-involved",
-    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Get Involved")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed"
+  }, "Get Involved")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/partners",
-    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed font-normal"
-  }, "Partner with Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb] text-[15px] leading-relaxed"
+  }, "Partner with Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "flex space-x-4 mt-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "https://facebook.com",
-    className: "hover:text-[#2bbecb]"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaFacebookF, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "hover:text-[#2bbecb] text-[#3b3b3b] text-lg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_9__.FaFacebookF, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "https://twitter.com",
-    className: "hover:text-[#2bbecb]"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaTwitter, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "hover:text-[#2bbecb] text-[#3b3b3b] text-lg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_9__.FaTwitter, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "https://linkedin.com",
-    className: "hover:text-[#2bbecb]"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaLinkedinIn, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    className: "hover:text-[#2bbecb] text-[#3b3b3b] text-lg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_9__.FaLinkedinIn, null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "https://instagram.com",
-    className: "hover:text-[#2bbecb]"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_7__.FaInstagram, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
-    className: "mt-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "hover:text-[#2bbecb] text-[#3b3b3b] text-lg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_9__.FaInstagram, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("form", {
+    className: "mt-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "relative flex items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", {
     type: "email",
     placeholder: "Subscribe to our newsletter",
-    className: "w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2bbecb]"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "w-full px-4 py-2.5 pr-36 text-[15px] border border-gray-300 rounded-full focus:outline-none focus:border-[#2bbecb] focus:ring-1 focus:ring-[#2bbecb] transition-colors"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
     type: "submit",
-    className: "mt-2 w-full bg-[#2bbecb] text-white py-2 rounded-md hover:bg-[#f6911e] transition"
-  }, "Subscribe"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "uppercase font-bold"
-  }, "Latest News"), [1, 2, 3].map(news => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    key: news,
-    className: "mb-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: `/news/${news}`,
-    className: "block hover:text-[#2bbecb] font-bold"
-  }, "News Title ", news), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-[#444]"
-  }, "Date: [Publish Date]"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-[#444]"
-  }, "Brief description of the news."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: `/news/${news}`,
-    className: "text-sm text-[#2bbecb] hover:underline"
-  }, "Read More")))))), activeMenu === 'Initiatives' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "absolute right-1 top-1/2 -translate-y-1/2 px-6 py-1.5 bg-[#2bbecb] text-white rounded-full hover:bg-[#f6911e] transition-colors duration-300 text-[14px] font-medium"
+  }, "Subscribe")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "mt-2 text-[13px] text-[#444] pl-4"
+  }, "Join our community for weekly updates"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
+    style: {
+      letterSpacing: '2px',
+      fontSize: '13px',
+      color: '#888',
+      cursor: 'default',
+      fontWeight: '500'
+    }
+  }, "LATEST INSIGHTS"), blogPosts.map((post, index) => {
+    var _post$data$featured_i2;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      key: post.uid,
+      className: "mb-6 group"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "flex space-x-4"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg"
+    }, ((_post$data$featured_i2 = post.data.featured_image) === null || _post$data$featured_i2 === void 0 ? void 0 : _post$data$featured_i2.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
+      src: post.data.featured_image.url,
+      alt: post.data.featured_image.alt || post.data.title,
+      className: "w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "flex-1"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h3", {
+      className: "font-semibold text-[16px] text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+      to: `/blog/${post.uid}`
+    }, post.data.title || "Untitled Post")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "flex items-center space-x-2 text-[13px] text-[#666] mb-2"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
+      className: "text-[#666]"
+    }, post.data.author || "Unknown Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, "\u2022"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("time", {
+      className: "text-[#666]"
+    }, post.data.publish_date || "Unknown Date")))), index !== 2 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      className: "mt-4 border-b border-gray-100"
+    }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/blog",
+    className: "inline-flex items-center mt-2 text-[15px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+  }, "View All News", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
+    className: "ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+  }))))), activeMenu === 'Initiatives' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "mt-1 bg-white border-gray-200 shadow-sm border-y"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "text-center py-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-xs uppercase font-normal text-gray-600 pb-1",
-    style: columnTitleStyle
-  }, "What We Are Doing")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-4 md:px-6 gap-6"
-  }, [_assets_images_alg_color_svg__WEBPACK_IMPORTED_MODULE_3__["default"], _assets_images_huduma_logo_svg__WEBPACK_IMPORTED_MODULE_4__["default"], _assets_images_LAR_logo_png__WEBPACK_IMPORTED_MODULE_5__["default"], _assets_images_YELP_Logo_svg__WEBPACK_IMPORTED_MODULE_6__["default"]].map((logo, idx) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    key: idx,
-    className: "text-center mb-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: logo,
-    alt: `Initiative ${idx + 1}`,
-    className: "mb-4 w-full h-32 object-cover rounded-lg"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "font-bold text-[#3b3b3b] mb-2"
-  }, "Initiative ", idx + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-[#444] mb-4"
-  }, "Brief description about the initiative."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "#",
-    className: "inline-flex items-center text-[#f6911e] hover:underline"
-  }, "Learn More ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
-    className: "ml-2"
-  })))))), activeMenu === 'Fellows & Champions' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "max-w-screen-xl px-4 py-8 mx-auto"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-6",
+    style: {
+      letterSpacing: '2px',
+      fontSize: '13px',
+      color: '#888',
+      cursor: 'default',
+      fontWeight: '500'
+    }
+  }, "What We Are Doing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "grid grid-cols-2 gap-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "bg-gray-50 rounded-2xl p-6 flex items-center group hover:bg-gray-100 transition-all duration-300"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "w-40 h-40 flex-shrink-0 mr-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
+    src: _assets_images_alg_color_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
+    alt: "Annual Leaders Gathering",
+    className: "w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "flex-1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h3", {
+    className: "text-[22px] font-bold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-3"
+  }, "Annual Leaders Gathering"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "text-[15px] text-[#666] leading-relaxed mb-4"
+  }, "Our flagship event bringing together visionaries and leaders from across Africa for inspiring sessions and transformative conversations."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "https://alg.leoafricainstitute.org",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    className: "inline-flex items-center text-[15px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+  }, "Learn More ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
+    className: "ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "grid grid-cols-2 gap-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "bg-gray-50 rounded-xl p-5 group hover:bg-gray-100 transition-all duration-300"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "w-28 h-28 mx-auto mb-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
+    src: _assets_images_YELP_Logo_svg__WEBPACK_IMPORTED_MODULE_7__["default"],
+    alt: "YELP Fellowship",
+    className: "w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h3", {
+    className: "text-[17px] font-semibold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2"
+  }, "YELP Fellowship"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "text-[14px] text-[#666] leading-relaxed mb-3"
+  }, "Training outstanding thought leaders in values and social responsibility."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "https://yelp.leoafricainstitute.org",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    className: "inline-flex items-center justify-center text-[14px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+  }, "Learn More ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
+    className: "ml-1.5 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "bg-gray-50 rounded-xl p-5 group hover:bg-gray-100 transition-all duration-300"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "w-28 h-28 mx-auto mb-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
+    src: _assets_images_huduma_logo_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
+    alt: "Huduma Fellowship",
+    className: "w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h3", {
+    className: "text-[17px] font-semibold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2"
+  }, "Huduma Fellowship"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "text-[14px] text-[#666] leading-relaxed mb-3"
+  }, "Training emerging civic & public sector champions in Uganda."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "https://huduma.leoafricainstitute.org",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    className: "inline-flex items-center justify-center text-[14px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+  }, "Learn More ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
+    className: "ml-1.5 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "col-span-2 bg-gray-50 rounded-xl p-5 group hover:bg-gray-100 transition-all duration-300"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "flex items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "w-28 h-28 flex-shrink-0 mr-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
+    src: _assets_images_LAR_logo_png__WEBPACK_IMPORTED_MODULE_6__["default"],
+    alt: "L\xE9O Africa Review",
+    className: "w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h3", {
+    className: "text-[17px] font-semibold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2"
+  }, "L\xE9O Africa Review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "text-[14px] text-[#666] leading-relaxed mb-3"
+  }, "Digital platform for thought-provoking insights on African leadership and development."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "https://leoafricareview.com",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    className: "inline-flex items-center text-[14px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+  }, "Read More ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
+    className: "ml-1.5 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+  }))))))))), activeMenu === 'Fellows & Champions' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "mt-1 bg-white border-gray-200 shadow-sm border-y"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-3 md:px-6 gap-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-xs uppercase font-normal text-gray-600 pb-1",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
     style: columnTitleStyle
-  }, "FEATURED FELLOWS"), [1, 2, 3].map(fellow => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "FEATURED FELLOWS"), [1, 2, 3].map(fellow => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     key: fellow,
     className: "mb-4 flex space-x-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
     src: `/images/fellow-${fellow}.jpg`,
     alt: `Fellow ${fellow}`,
     className: "h-16 w-16 object-cover rounded-lg"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h3", {
     className: "font-bold text-[#3b3b3b] hover:text-[#2bbecb]"
-  }, "Fellow Name ", fellow), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+  }, "Fellow Name ", fellow), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "text-sm text-[#444]"
-  }, "Brief description about this fellow and their impact."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Brief description about this fellow and their impact."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: `/fellows/${fellow}`,
     className: "text-[#f6911e] hover:underline"
-  }, "Read More")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Read More")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/fellows",
     className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline"
-  }, "Meet All Fellows ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
+  }, "Meet All Fellows ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
     className: "ml-2"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", {
     className: "mb-4 space-y-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-xs uppercase font-normal text-gray-600 pb-1",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
     style: columnTitleStyle
-  }, "MENTORSHIP & CHAMPIONS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "MENTORSHIP & CHAMPIONS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/champions",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Our Champions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Our Champions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/mentorship",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Mentorship Programs")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Mentorship Programs")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/leadership-programs",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Leadership Initiatives")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Leadership Initiatives")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/champions-and-mentors",
     className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline"
-  }, "Explore Mentorship & Champions ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
+  }, "Explore Mentorship & Champions ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
     className: "ml-2"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "uppercase font-bold"
-  }, "LATEST STORIES"), [1, 2, 3].map(story => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
+    style: columnTitleStyle
+  }, "LATEST STORIES"), [1, 2, 3].map(story => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     key: story,
     className: "mb-4 flex space-x-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
     src: `/images/story-${story}.jpg`,
     alt: `Story ${story}`,
     className: "h-16 w-16 object-cover rounded-lg"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h3", {
     className: "font-bold text-[#3b3b3b] hover:text-[#2bbecb]"
-  }, "Story Title ", story), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+  }, "Story Title ", story), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "text-sm text-[#444]"
-  }, "Teaser text for this story, providing an overview of the content."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Teaser text for this story, providing an overview of the content."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: `/stories/${story}`,
     className: "text-[#f6911e] hover:underline"
-  }, "Read More")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Read More")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/stories",
     className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline"
-  }, "View All Stories ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
+  }, "View All Stories ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
     className: "ml-2"
-  }))))), activeMenu === 'Events & Gatherings' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }))))), activeMenu === 'Events & Gatherings' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "mt-1 bg-white border-gray-200 shadow-sm border-y"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
     className: "grid max-w-screen-xl px-4 py-5 mx-auto text-sm md:grid-cols-3 md:px-6 gap-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", {
     className: "mb-4 space-y-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-xs uppercase font-normal text-gray-600 pb-1",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
     style: columnTitleStyle
-  }, "Our Next Major Event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Our Next Major Event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/alg",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Annual Leaders Gathering")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Annual Leaders Gathering")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/yelp",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "YELP Fellowship")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "YELP Fellowship")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/huduma",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Huduma Fellowship")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Huduma Fellowship")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/talks",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "L\xE9O Talks")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "L\xE9O Talks")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/debates",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "L\xE9O Debates")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "L\xE9O Debates")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events",
     className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline text-[15px] font-medium"
-  }, "Browse All Events ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
+  }, "Browse All Events ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
     className: "ml-2"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("ul", {
     className: "mb-4 space-y-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-xs uppercase font-normal text-gray-600 pb-1",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
     style: columnTitleStyle
-  }, "Upcoming Events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Upcoming Events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/leadership",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Leadership Development")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Leadership Development")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/policy",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Policy & Governance")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Policy & Governance")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/innovation",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Innovation & Technology")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Innovation & Technology")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/culture",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Arts & Culture")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Arts & Culture")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events/business",
     className: "text-[#3b3b3b] hover:underline hover:text-[#2bbecb]"
-  }, "Business & Entrepreneurship")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Business & Entrepreneurship")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "/events",
     className: "inline-flex items-center mt-4 text-[#f6911e] hover:underline text-[15px] font-medium"
-  }, "Learn How You Can Be Part of Our Events ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
+  }, "Learn How You Can Be Part of Our Events ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
     className: "ml-2"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "uppercase font-bold"
-  }, "Browse Our Past Events"), [1, 2, 3].map(event => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    key: event,
-    className: "mb-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "font-bold text-[#3b3b3b] hover:text-[#2bbecb]"
-  }, "Event Title ", event), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-sm text-[#444]"
-  }, "Theme: Brief description of the past event."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-[#444]"
-  }, "Date: [Event Date]"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/past-events",
-    className: "inline-flex items-center text-[#f6911e] hover:underline"
-  }, "View All Past Events ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_8__.FiArrowRight, {
-    className: "ml-2"
-  }))))));
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h2", {
+    className: "text-xs uppercase font-normal text-gray-600 pb-1 mb-5",
+    style: {
+      letterSpacing: '2px',
+      fontSize: '13px',
+      color: '#888',
+      cursor: 'default',
+      fontWeight: '500'
+    }
+  }, "Our Flagship Event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "group flex items-start space-x-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "flex-shrink-0 w-24 h-24 overflow-hidden rounded-lg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
+    src: _assets_images_alg_icon_png__WEBPACK_IMPORTED_MODULE_8__["default"],
+    alt: "Annual Leaders Gathering",
+    className: "w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "flex-1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h3", {
+    className: "text-[16px] font-semibold text-[#3b3b3b] group-hover:text-[#2bbecb] transition-colors duration-300 mb-2"
+  }, "Annual Leaders Gathering (ALG)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "text-[14px] text-[#666] leading-relaxed mb-3"
+  }, "The Annual Leaders Gathering (ALG) is a premier leadership forum that brings together emerging African leaders to engage in meaningful dialogue, share experiences, and forge partnerships for Africa's development."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "https://alg.leoafricainstitute.org",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    className: "inline-flex items-center text-[14px] font-medium text-[#f6911e] hover:text-[#2bbecb] transition-colors duration-300"
+  }, "Learn More", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_10__.FiArrowRight, {
+    className: "ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+  })))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Navbar);
 
@@ -10447,6 +10595,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA0MzMuMiAxNDUuNjQiIHZpZXdCb3g9IjAgMCA0MzMuMiAxNDUuNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTcwLjMxIDEzOS41NWMtLjU0IDAtMS4wMS0uMzktMS4wOS0uOTQtLjA5LS42LjMyLTEuMTcuOTMtMS4yNmwzLjktLjYtNS4wNS0uNTljLS41NC0uMDYtLjk1LS41LS45OC0xLjA0cy4zNC0xLjAyLjg2LTEuMTRsOS43Ni0yLjIxaC0xMC44N2MtLjU2IDAtMS4wMy0uNDEtMS4xLS45Ny0uMDctLjU1LjI4LTEuMDcuODItMS4yMWwxMi45NC0zLjM2LTE0LjQyIDEuMzFjLS41OC4wNS0xLjEtLjM1LTEuMTktLjkzLS4wOS0uNTcuMjctMS4xMi44NC0xLjI2bDIyLjMxLTUuMjVoLTI0LjI1Yy0uNTggMC0xLjA2LS40NC0xLjEtMS4wMi0uMDUtLjU4LjM2LTEuMDkuOTMtMS4xOGwyMi40My0zLjY1LTI2LjM0LS43NWMtLjU5LS4wMi0xLjA2LS40OS0xLjA4LTEuMDgtLjAxLS41OS40NC0xLjA5IDEuMDItMS4xM2wyNy4zNi0yLjEtMjkuMzktMi4yOGMtLjU5LS4wNS0xLjA0LS41NS0xLjAyLTEuMTRzLjUtMS4wNiAxLjA5LTEuMDdsMzUuMjMtLjUzLTMyLjYtNC41NmMtLjU3LS4wOC0uOTgtLjU4LS45NS0xLjE2LjAzLS41Ny41LTEuMDMgMS4wNy0xLjA1bDMyLjczLTEuMDgtMzIuNzctMy45MmMtLjU3LS4wNy0uOTktLjU2LS45OC0xLjEzLjAyLS41Ny40Ny0xLjA0IDEuMDQtMS4wN2wyOS40OS0xLjgxLTMzLjA1LTMuMDJjLS41Ny0uMDUtMS4wMS0uNTQtMS4wMS0xLjExIDAtLjU4LjQ1LTEuMDUgMS4wMy0xLjFsMzQuMDgtMi41NC0zOC44OC0xLjQxYy0uNTctLjAyLTEuMDQtLjQ4LTEuMDctMS4wNXMuMzgtMS4wNy45NS0xLjE1bDQzLjI5LTYuMDMtNzMuNDUgMi41MmMtLjU5LjAxLTEuMS0uNDMtMS4xNC0xLjAyLS4wNS0uNTkuMzgtMS4xMS45Ny0xLjE4bDgyLjkxLTkuNzktOTIuNzMtLjMxYy0uNiAwLTEuMDgtLjQ3LTEuMS0xLjA3LS4wMi0uNTkuNDMtMS4xIDEuMDMtMS4xNGw3OC4yOS01Ljc0LTc4LjI5LTQuMzVjLS41OC0uMDMtMS4wNC0uNTEtMS4wNS0xLjA5cy40NC0xLjA3IDEuMDItMS4xMmw3MC4xOC01Ljc3LTY4LjI2LTMuMjRjLS41OC0uMDMtMS4wNC0uNS0xLjA1LTEuMDgtLjAyLS41OC40Mi0xLjA3Ljk5LTEuMTNsNjYuNjQtNi45OS01NC4wMi0yLjU2Yy0uNTYtLjAzLTEuMDItLjQ3LTEuMDUtMS4wNC0uMDMtLjU2LjM2LTEuMDYuOTItMS4xNmwyNS4xOC00LjMtMTAuOTgtMS41Yy0uNjEtLjA4LTEuMDMtLjY0LS45NS0xLjI1cy42NC0xLjAzIDEuMjUtLjk1bDE4LjExIDIuNDhjLjU0LjA3Ljk1LjUzLjk2IDEuMDhzLS4zOCAxLjAyLS45MiAxLjExbC0yMi4yMyAzLjggNTguMzkgMi43N2MuNTguMDMgMS4wNC41IDEuMDUgMS4wOC4wMi41OC0uNDIgMS4wNy0uOTkgMS4xM2wtNjYuNjQgNi45OSA3MC44IDMuMzZjLjU4LjAzIDEuMDQuNSAxLjA2IDEuMDkuMDEuNTgtLjQzIDEuMDgtMS4wMiAxLjEybC03MS4yIDUuODYgNzkuNDEgNC40MWMuNTguMDMgMS4wNC41MSAxLjA1IDEuMS4wMS41OC0uNDQgMS4wNy0xLjAzIDEuMTFsLTY2LjUxIDQuODcgODIuMDYuMjZjLjU5IDAgMS4wNy40NiAxLjEgMS4wNHMtLjM5IDEuMDktLjk4IDEuMTZsLTc0LjcyIDguODIgNjguMTMtMi4zM2MuNTktLjAzIDEuMDkuNDIgMS4xNCAxLjAxcy0uMzcgMS4xMS0uOTUgMS4xOWwtNTEuODEgNy4yMiA0Ni4yNSAxLjY4Yy41OS4wMiAxLjA2LjUgMS4wNyAxLjA5cy0uNDQgMS4wOC0xLjAzIDEuMTNsLTQwLjcyIDMuMDMgMzQuMTkgMy4xMmMuNTguMDUgMS4wMi41NCAxLjAxIDEuMTJzLS40NiAxLjA1LTEuMDQgMS4wOWwtMzEuNzkgMS45NSAzNS4wMyA0LjIxYy41Ny4wNyAxIC41Ny45NyAxLjE1cy0uNDkgMS4wNC0xLjA3IDEuMDZsLTM0LjM2IDEuMTMgMzQuMDcgNC43NmMuNTcuMDguOTkuNTkuOTUgMS4xN3MtLjUxIDEuMDMtMS4wOSAxLjA0bC0yNS42Ny4zOSAxOS44NSAxLjU0Yy41OC4wNCAxLjAyLjUzIDEuMDIgMS4xIDAgLjU4LS40NSAxLjA2LTEuMDIgMS4xbC0yMC42NCAxLjU5IDE2LjkyLjQ4Yy41Ny4wMiAxLjA0LjQ2IDEuMDcgMS4wMy4wNC41Ny0uMzYgMS4wOC0uOTMgMS4xN2wtMjAuNCAzLjMyaDIwLjA4Yy41NiAwIDEuMDQuNDIgMS4xLjk4cy0uMyAxLjA4LS44NSAxLjIxbC0xNi4yNyAzLjgzIDEyLjItMS4xMWMuNTgtLjA1IDEuMDkuMzUgMS4xOS45MS4xLjU3LS4yNSAxLjEyLS44MSAxLjI2bC0xNy42MyA0LjU4aDEyLjEyYy41NiAwIDEuMDQuNDIgMS4xLjk4cy0uMzEgMS4wOC0uODYgMS4ybC0xMy4wOSAyLjk2IDYuNzIuNzhjLjU1LjA2Ljk3LjUyLjk4IDEuMDguMDEuNTUtLjM5IDEuMDMtLjk0IDEuMTJsLTEyIDEuODZjLS4wNS0wLS4xMS4wMS0uMTYuMDF6IiBmaWxsPSIjMWQ4ZjkyIi8+PGcgZmlsbD0iIzRiNGY1MiI+PHBhdGggZD0ibTE0Ny4zNiAxMS40NmgxLjA4djEwNS4zMWgtMS4wOHoiLz48cGF0aCBkPSJtMTcyLjM5IDQyLjE5IDExLjc0LTI5Ljg2aDMuMTlsMTEuNDUgMjkuODZoLTIuOWwtMy40NC05LjM3aC0xMy42bC0zLjUzIDkuMzd6bTcuMzgtMTEuNzhoMTEuN2wtNS44NS0xNS42OHoiLz48cGF0aCBkPSJtMjA4Ljk3IDE2LjE0aC0uMDh2MjYuMDVoLTIuODJ2LTI5Ljg2aDMuMTlsMTcuMjUgMjYuMDloLjA4di0yNi4wOWgyLjgydjI5Ljg2aC0zLjI4eiIvPjxwYXRoIGQ9Im0yNDIuNTIgMTYuMTRoLS4wOHYyNi4wNWgtMi44MnYtMjkuODZoMy4xOWwxNy4yNSAyNi4wOWguMDh2LTI2LjA5aDIuODJ2MjkuODZoLTMuMjh6Ii8+PHBhdGggZD0ibTI3Mi4yOSAxMi4zM2gyLjgydjE3Ljc5YzAgMy43MS42OSA2LjM3IDIuMDcgOHMzLjYxIDIuNDUgNi42OCAyLjQ1YzEuNiAwIDIuOTctLjIxIDQuMDktLjY0czIuMDItMS4wOCAyLjcyLTEuOTVjLjY5LS44NyAxLjE5LTEuOTYgMS40OS0zLjI1LjMtMS4zLjQ2LTIuODMuNDYtNC42di0xNy44aDIuODJ2MTguNjJjMCAzLjktLjk2IDYuODgtMi44OCA4Ljk0cy00LjgyIDMuMDktOC42OSAzLjA5Yy0zLjkgMC02LjgtMS4wNS04LjcxLTMuMTVzLTIuODYtNS4wNi0yLjg2LTguODh2LTE4LjYyeiIvPjxwYXRoIGQ9Im0yOTguODggNDIuMTkgMTEuNzQtMjkuODZoMy4xOWwxMS40NSAyOS44NmgtMi45bC0zLjQ0LTkuMzdoLTEzLjZsLTMuNTMgOS4zN3ptNy4zOC0xMS43OGgxMS43bC01Ljg1LTE1LjY4eiIvPjxwYXRoIGQ9Im0zMzIuMzUgNDIuMTl2LTI5Ljg2aDIuODJ2MjcuNDZoMTYuMDF2Mi40MWgtMTguODN6Ii8+PHBhdGggZD0ibTE5Mi44OSA3OC4wNmgtMTguMjR2LTI4LjJoNS45djIzLjMyaDEyLjMzdjQuODh6Ii8+PHBhdGggZD0ibTIxOC40NiA3OC4wNmgtMTguNjl2LTI4LjJoMTguNjl2NC44N2gtMTIuNzh2Ni44aDEyLjA2djQuNTNoLTEyLjA2djcuMTJoMTIuNzh6Ii8+PHBhdGggZD0ibTI0Mi45NSA3MS4yMmgtOS45MWwtMi4xNSA2Ljg0aC02LjA2bDkuNzktMjguMjFoNi45NGw5LjgxIDI4LjIxaC02LjI3em0tOC42NC00LjQxaDcuMzdsLTMuNjItMTEuNTVoLS4xNHoiLz48cGF0aCBkPSJtMjY4LjcxIDQ5Ljg2YzguNDYgMCAxMy40NSA1LjA0IDEzLjQ1IDE0IDAgOC45NS00Ljk4IDE0LjIxLTEzLjQ1IDE0LjIxaC0xMC43N3YtMjguMjF6bS00Ljg2IDIzLjMyaDQuMTZjNS4yOCAwIDguMTMtMy4yMSA4LjEzLTkuMyAwLTUuOS0yLjkzLTkuMTUtOC4xMy05LjE1aC00LjE2eiIvPjxwYXRoIGQ9Im0zMDguNiA3OC4wNmgtMTguNjl2LTI4LjJoMTguNjl2NC44N2gtMTIuNzh2Ni44aDEyLjA2djQuNTNoLTEyLjA2djcuMTJoMTIuNzh6Ii8+PHBhdGggZD0ibTMyMi44IDc4LjA2aC01Ljl2LTI4LjJoMTEuNTVjNi40OSAwIDEwLjIgMy40MiAxMC4yIDguOTkgMCAzLjYyLTEuODggNi43NC01LjEyIDguMDFsNS45NCAxMS4yaC02LjY4bC01LjI2LTEwLjMyaC00Ljczem0wLTE0LjZoNS4wOGMyLjk3IDAgNC43MS0xLjcgNC43MS00LjUgMC0yLjc0LTEuODQtNC41LTQuNzctNC41aC01LjAyeiIvPjxwYXRoIGQ9Im0zNTAuNTkgNzAuMDFjLjM3IDIuMzYgMi43NiAzLjc3IDUuOTYgMy43NyAzLjE1IDAgNS4zLTEuNTMgNS4zLTMuNiAwLTEuODYtMS4zMy0yLjkxLTQuODctMy42NGwtMi45Ny0uNTljLTUuNjMtMS4xMS04LjM4LTMuODEtOC4zOC04LjAxIDAtNS4xNiA0LjUtOC41OCAxMC43Ny04LjU4IDYuNTkgMCAxMC43MyAzLjQ0IDEwLjgzIDguNjJoLTUuNTdjLS4yLTIuNC0yLjI5LTMuODUtNS4yNi0zLjg1LTIuOTEgMC00Ljg3IDEuMzctNC44NyAzLjQ0IDAgMS43NCAxLjM3IDIuODEgNC42OSAzLjQ4bDIuOTkuNjFjNS45NiAxLjE5IDguNTYgMy42IDguNTYgNy44OCAwIDUuNTEtNC4zMiA4Ljk5LTExLjM4IDguOTktNi43MiAwLTExLjItMy4yMS0xMS4zOC04LjUyeiIvPjxwYXRoIGQ9Im0xODcuMzYgMTE1LjI5Yy04LjQyIDAtMTMuNTgtNS40OS0xMy41OC0xNC42NiAwLTkuMDMgNS4xNi0xNC41IDEzLjQ1LTE0LjUgNi41OSAwIDExLjU1IDMuODkgMTIuMzkgOS42aC01LjkyYy0uODYtMi45NS0zLjI2LTQuNzEtNi40NS00LjcxLTQuNjUgMC03LjQ1IDMuNTQtNy40NSA5LjU0IDAgNi4xMiAyLjk3IDkuODUgNy42NiA5Ljg1IDMuODUgMCA2LjUzLTIuMzYgNi42NS01Ljg2bC4wMi0uNDVoLTYuMTR2LTQuM2gxMS44OHYzLjE5Yy0wIDcuNjYtNC42NSAxMi4zLTEyLjUxIDEyLjN6Ii8+PHBhdGggZD0ibTIyNC42NSAxMDcuOThoLTkuOTFsLTIuMTUgNi44NGgtNi4wNmw5Ljc5LTI4LjIxaDYuOTRsOS44MSAyOC4yMWgtNi4yN3ptLTguNjQtNC40Mmg3LjM3bC0zLjYyLTExLjU1aC0uMTR6Ii8+PHBhdGggZD0ibTI0My4yNiAxMTQuODJ2LTIzLjM0aC04LjE1di00Ljg3aDIyLjIydjQuODdoLTguMTd2MjMuMzR6Ii8+PHBhdGggZD0ibTI4MS41NCAxMTQuODJ2LTExLjg4aC0xMi43MXYxMS44OGgtNS45di0yOC4yMWg1Ljl2MTEuNDZoMTIuNzF2LTExLjQ2aDUuOXYyOC4yMXoiLz48cGF0aCBkPSJtMzE1LjQzIDExNC44MmgtMTguNjl2LTI4LjIxaDE4LjY5djQuODdoLTEyLjc4djYuOGgxMi4wNnY0LjUzaC0xMi4wNnY3LjEyaDEyLjc4eiIvPjxwYXRoIGQ9Im0zMjkuNjMgMTE0LjgyaC01Ljl2LTI4LjIxaDExLjU1YzYuNDkgMCAxMC4yIDMuNDIgMTAuMiA4Ljk5IDAgMy42Mi0xLjg4IDYuNzQtNS4xMiA4LjAxbDUuOTQgMTEuMmgtNi42OGwtNS4yNi0xMC4zMmgtNC43M3ptMC0xNC42MWg1LjA4YzIuOTcgMCA0LjcxLTEuNyA0LjcxLTQuNSAwLTIuNzQtMS44NC00LjUtNC43Ny00LjVoLTUuMDJ6Ii8+PHBhdGggZD0ibTM1MS40IDExNC44MnYtMjguMjFoNS45djI4LjIxeiIvPjxwYXRoIGQ9Im0zNjYuNjUgMTE0Ljgydi0yOC4yMWg0LjkzbDEzLjE3IDE4LjM3aC4xNnYtMTguMzdoNS42NXYyOC4yMWgtNC44OWwtMTMuMTktMTguNDdoLS4xOHYxOC40N3oiLz48cGF0aCBkPSJtNDEyLjM2IDExNS4yOWMtOC40MiAwLTEzLjU4LTUuNDktMTMuNTgtMTQuNjYgMC05LjAzIDUuMTYtMTQuNSAxMy40NS0xNC41IDYuNTkgMCAxMS41NSAzLjg5IDEyLjM5IDkuNmgtNS45MmMtLjg2LTIuOTUtMy4yNi00LjcxLTYuNDUtNC43MS00LjY1IDAtNy40NSAzLjU0LTcuNDUgOS41NCAwIDYuMTIgMi45NyA5Ljg1IDcuNjYgOS44NSAzLjg1IDAgNi41My0yLjM2IDYuNjUtNS44NmwuMDItLjQ1aC02LjE0di00LjNoMTEuODh2My4xOWMwIDcuNjYtNC42NSAxMi4zLTEyLjUxIDEyLjN6Ii8+PC9nPjwvc3ZnPg==");
+
+/***/ }),
+
+/***/ "./src/assets/images/alg-icon.png":
+/*!****************************************!*\
+  !*** ./src/assets/images/alg-icon.png ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/static/alg-icon-cbcf833c12deb67bf4c4b5169b8d031a.png");
 
 /***/ }),
 
@@ -18977,6 +19140,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 module.exports = [];
+
+/***/ }),
+
+/***/ "./public/page-data/sq/d/3764181749.json":
+/*!***********************************************!*\
+  !*** ./public/page-data/sq/d/3764181749.json ***!
+  \***********************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"data":{"allPrismicBlogPosts":{"nodes":[{"uid":"new","data":{"title":"New","publish_date":null,"author":"New","featured_image":{"url":"https://images.prismic.io/leoafrica/ZzyLnK8jQArT1BxS_32545464737_79239f1173_o.jpg?auto=format%2Ccompress&fit=max","alt":null}}},{"uid":"4-institute-deputy-director-kwezi-tabaro-receives-prestigious-hubert-humphrey-fellowship","data":{"title":"4 Institute Deputy Director Kwezi Tabaro Receives Prestigious Hubert Humphrey Fellowship","publish_date":"November 7, 2024","author":null,"featured_image":{"url":"https://images.prismic.io/leoafrica/ZziOZK8jQArT08CU_KweziTabaro.jpg?auto=format%2Ccompress&fit=max","alt":null}}},{"uid":"5-institute-deputy-director-kwezi-tabaro-receives-prestigious-hubert-humphrey-fellowship","data":{"title":"5Institute Deputy Director Kwezi Tabaro Receives Prestigious Hubert Humphrey Fellowship","publish_date":"November 7, 2024","author":"Akello Jane","featured_image":{"url":"https://images.prismic.io/leoafrica/ZziOZK8jQArT08CU_KweziTabaro.jpg?auto=format%2Ccompress&fit=max","alt":"Our long-time deputy director Kwezi Tabaro is the recipient of the prestigious Hubert Humphrey Fellowship 2024, marking a significant recognition of his outstanding contribution to shaping leadership development programmes at the LéO Africa Institute."}}}]}}}');
 
 /***/ })
 
