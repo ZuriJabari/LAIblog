@@ -10,9 +10,32 @@ import YelpLogo from '../assets/images/YELP-Logo.svg';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [language, setLanguage] = useState("en");
 
   const handleMenuToggle = (menu) => {
     setActiveMenu((prevMenu) => (prevMenu === menu ? null : menu));
+  };
+
+  const handleSearchToggle = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    // Implement search functionality here
+    console.log("Search query:", searchQuery);
+  };
+
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value);
+    // Implement language change functionality here
+    console.log("Language changed to:", e.target.value);
   };
 
   return (
@@ -34,23 +57,41 @@ const Navbar = () => {
           </a>
         </div>
         <div className="flex items-center space-x-6">
-          <button className="hover:text-[#2bbecb] transition duration-300">
+          <button onClick={handleSearchToggle} className="hover:text-[#2bbecb] transition duration-300">
             <FiSearch className="w-5 h-5" />
           </button>
           <a href="/get-involved" className="hover:text-[#2bbecb] transition duration-300">
             Get Involved
           </a>
-          <a href="/partners" className="hover:text-[#2bbecb] transition duration-300">
-            Partner with Us
-          </a>
-          <a href="/contact" className="hover:text-[#2bbecb] transition duration-300">
-            Contact Us
-          </a>
-          <button className="hover:text-[#2bbecb] transition duration-300">
-            <FiGlobe className="w-5 h-5" />
-          </button>
+          <select
+            value={language}
+            onChange={handleLanguageChange}
+            className="bg-white border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#2bbecb]"
+          >
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="es">ES</option>
+          </select>
         </div>
       </div>
+
+      {/* Search Bar */}
+      {isSearchOpen && (
+        <div className="bg-gray-100 py-2 px-4">
+          <form onSubmit={handleSearchSubmit} className="flex items-center">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              placeholder="Search..."
+              className="flex-1 bg-white border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2bbecb]"
+            />
+            <button type="submit" className="ml-2 bg-[#2bbecb] text-white px-4 py-2 rounded-md">
+              Search
+            </button>
+          </form>
+        </div>
+      )}
 
       {/* Full-Width Horizontal Line */}
       <div className="w-full h-px bg-gray-300"></div>
