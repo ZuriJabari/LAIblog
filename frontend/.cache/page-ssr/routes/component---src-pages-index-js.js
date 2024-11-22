@@ -779,7 +779,7 @@ const OurPeople = () => {
     champions: "Our Champions are influential supporters making significant contributions to our mission and community."
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "py-20 bg-gradient-to-b from-[#1e8e92] to-[#0d6163] text-white w-full relative"
+    className: "py-20 bg-gradient-to-b from-[rgb(1,189,204)] to-[#0d6163] text-white w-full relative"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "max-w-7xl mx-auto px-8 space-y-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
@@ -788,12 +788,12 @@ const OurPeople = () => {
     className: "flex justify-center space-x-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     onClick: () => setActiveTab("fellows"),
-    className: `flex items-center px-6 py-3 text-lg font-semibold rounded-full transition-all duration-300 space-x-2 ${activeTab === "fellows" ? "bg-white text-[#1e8e92] shadow-lg scale-105" : "text-white hover:bg-white hover:text-[#1e8e92] hover:shadow-lg"}`
+    className: `flex items-center px-6 py-3 text-lg font-semibold rounded-full transition-all duration-300 space-x-2 ${activeTab === "fellows" ? "bg-white text-[rgb(1,189,204)] shadow-lg scale-105" : "text-white hover:bg-white hover:text-[rgb(1,189,204)] hover:shadow-lg"}`
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUsers, {
     size: 20
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Our Fellows")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     onClick: () => setActiveTab("champions"),
-    className: `flex items-center px-6 py-3 text-lg font-semibold rounded-full transition-all duration-300 space-x-2 ${activeTab === "champions" ? "bg-white text-[#1e8e92] shadow-lg scale-105" : "text-white hover:bg-white hover:text-[#1e8e92] hover:shadow-lg"}`
+    className: `flex items-center px-6 py-3 text-lg font-semibold rounded-full transition-all duration-300 space-x-2 ${activeTab === "champions" ? "bg-white text-[rgb(1,189,204)] shadow-lg scale-105" : "text-white hover:bg-white hover:text-[rgb(1,189,204)] hover:shadow-lg"}`
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaAward, {
     size: 20
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Our Champions"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
@@ -802,7 +802,7 @@ const OurPeople = () => {
     className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
   }, profiles[activeTab].slice(0, 4).map((person, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     key: index,
-    className: "flex flex-col items-center bg-white text-[#1e8e92] p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform duration-300 hover:scale-105"
+    className: "flex flex-col items-center bg-white text-[rgb(1,189,204)] p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform duration-300 hover:scale-105"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     src: person.photo,
     alt: person.name,
@@ -816,19 +816,19 @@ const OurPeople = () => {
   }, person.socials.twitter && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: person.socials.twitter,
     "aria-label": "Twitter",
-    className: "hover:text-[#1e8e92]"
+    className: "hover:text-[rgb(1,189,204)]"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTwitter, null)), person.socials.linkedin && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: person.socials.linkedin,
     "aria-label": "LinkedIn",
-    className: "hover:text-[#1e8e92]"
+    className: "hover:text-[rgb(1,189,204)]"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaLinkedinIn, null)), person.socials.facebook && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: person.socials.facebook,
     "aria-label": "Facebook",
-    className: "hover:text-[#1e8e92]"
+    className: "hover:text-[rgb(1,189,204)]"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFacebookF, null)), person.socials.instagram && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: person.socials.instagram,
     "aria-label": "Instagram",
-    className: "hover:text-[#1e8e92]"
+    className: "hover:text-[rgb(1,189,204)]"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaInstagram, null)))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "flex justify-end mt-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
@@ -932,36 +932,29 @@ __webpack_require__.r(__webpack_exports__);
 const pillars = [{
   title: "Climate Change",
   subtitle: "Empowering Young Leaders in Climate Action",
-  description: "Climate change poses significant risks to Africa, manifesting in natural disasters, deforestation, and energy crises. The Léo Africa Institute is committed to empowering young climate action actors and ensuring the sincerity of climate change discussions.",
+  description: "Climate change poses significant risks to Africa, manifesting in disasters and energy crises. Léo Africa Institute empowers young leaders to ensure sincere climate discussions.",
   link: "/climate-change",
   bgColor: "#F89131"
 }, {
   title: "Economic Empowerment",
   subtitle: "Driving Inclusive Growth Across the Continent",
-  description: "The Léo Africa Institute believes in fostering entrepreneurship and innovation to address poverty and unemployment. By empowering young African leaders, we aim to build a sustainable and inclusive economic future.",
+  description: "The Institute fosters entrepreneurship and innovation to tackle poverty and unemployment, building a sustainable, inclusive economic future.",
   link: "/economic-empowerment",
   bgColor: "#01BDCC"
 }, {
   title: "Cultural Heritage",
   subtitle: "Preserving and Celebrating Africa's Legacy",
-  description: "Our cultural heritage is a source of strength and identity. Through various initiatives, the Léo Africa Institute supports the preservation of Africa's rich cultural traditions and narratives.",
+  description: "Léo Africa supports preserving Africa's rich cultural traditions and narratives as a source of strength and identity.",
   link: "/cultural-heritage",
   bgColor: "#910810"
 }, {
   title: "Good Governance",
   subtitle: "Promoting Accountability and Leadership",
-  description: "The Institute is committed to nurturing leaders who uphold democratic principles and ethical governance to create lasting change across African societies.",
+  description: "The Institute nurtures leaders who uphold democratic principles and ethical governance for lasting societal change.",
   link: "/good-governance",
   bgColor: "#545456"
 }];
 const Pillars = () => {
-  const {
-    0: activeIndex,
-    1: setActiveIndex
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
-  const handleAccordionClick = index => {
-    setActiveIndex(index);
-  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
     className: "py-20 bg-[#545456] text-white"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -970,32 +963,28 @@ const Pillars = () => {
     className: "text-4xl font-extrabold tracking-tight text-center text-[#F89131] mb-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "font-light"
-  }, "The Next Africa:"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Pillars of African Renaissance")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex overflow-hidden rounded-lg shadow-lg"
+  }, "The Next Africa:"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "font-semibold"
+  }, "Pillars of African Renaissance")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
   }, pillars.map((pillar, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     key: index,
-    className: `relative flex-shrink-0 transition-all duration-500 ${activeIndex === index ? "flex-[3]" : "flex-[1]"}`,
-    onClick: () => handleAccordionClick(index),
+    className: "relative p-6 rounded-lg shadow-lg group transform transition-transform duration-300 hover:scale-105",
     style: {
-      backgroundColor: activeIndex === index ? pillar.bgColor : "#545456",
-      cursor: "pointer"
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: `absolute inset-0 flex items-center justify-center text-center text-lg font-bold ${activeIndex === index ? "text-white" : "text-[#EDEDED]"}`
-  }, pillar.title), activeIndex === index && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "absolute inset-0 p-6 space-y-4 text-left",
-    style: {
-      backgroundColor: pillar.bgColor,
-      color: "white"
+      backgroundColor: pillar.bgColor
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "text-xl font-extrabold"
+    className: "text-2xl font-bold mb-2"
+  }, pillar.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", {
+    className: "border-t-2 border-white opacity-40 my-2"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-lg font-medium italic mb-4"
   }, pillar.subtitle), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-sm leading-relaxed"
+    className: "text-base leading-relaxed mb-5 text-[#F0F0F0]"
   }, pillar.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: pillar.link,
-    className: "inline-block text-white bg-[#762e2f] py-2 px-4 rounded-md font-semibold hover:bg-white hover:text-[#762e2f] transition-colors"
-  }, "Learn more...")))))));
+    className: "inline-block mt-auto text-[#F89131] bg-white py-2 px-5 rounded-full font-semibold transition-transform duration-300 transform group-hover:-translate-y-1 group-hover:scale-105"
+  }, "Learn more..."))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pillars);
 

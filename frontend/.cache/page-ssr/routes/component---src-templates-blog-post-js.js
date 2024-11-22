@@ -282,11 +282,10 @@ __webpack_require__.r(__webpack_exports__);
 const BlogPage = ({
   data
 }) => {
-  var _blog$author_picture, _blog$categories, _blog$categories$, _blog$featured_image, _blog$multimedia, _blog$quotes, _blog$tags;
+  var _blog$author_picture, _blog$featured_image;
   const blog = data.prismicBlogPosts.data;
+  const relatedPosts = data.allPrismicBlogPosts.edges; // Fetch related articles
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
-
-  // State for progress bar
   const {
     0: progress,
     1: setProgress
@@ -301,7 +300,7 @@ const BlogPage = ({
         } = articleElement.getBoundingClientRect();
         const scrollHeight = window.innerHeight;
         const percentage = Math.min(Math.max((scrollHeight - top) / height, 0), 1);
-        setProgress(percentage * 100); // Convert to percentage
+        setProgress(percentage * 100);
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -311,11 +310,11 @@ const BlogPage = ({
   // Calculate Read Time
   const calculateReadTime = text => {
     const wordsPerMinute = 200; // Average reading speed
-    const words = text.split(/\s+/).length; // Count words in text
+    const words = text.split(/\s+/).length;
     const minutes = Math.ceil(words / wordsPerMinute);
     return minutes;
   };
-  const plainTextContent = prismic_reactjs__WEBPACK_IMPORTED_MODULE_2__.RichText.asText(blog.content.raw); // Convert RichText to plain text
+  const plainTextContent = prismic_reactjs__WEBPACK_IMPORTED_MODULE_2__.RichText.asText(blog.content.raw);
   const readTime = calculateReadTime(plainTextContent);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "fixed top-0 left-0 w-full h-2 z-50 bg-gray-200"
@@ -338,15 +337,11 @@ const BlogPage = ({
     className: "text-sm text-gray-300"
   }, "By ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "font-semibold"
-  }, blog.author || "Unknown"), " | ", blog.publish_date, " |", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "font-semibold"
-  }, ((_blog$categories = blog.categories) === null || _blog$categories === void 0 ? void 0 : (_blog$categories$ = _blog$categories[0]) === null || _blog$categories$ === void 0 ? void 0 : _blog$categories$.category) || "Uncategorized"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+  }, blog.author || "Unknown"), " | ", blog.publish_date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
     className: "text-5xl lg:text-6xl font-extrabold mb-4 hover:scale-105 transition-transform duration-500"
   }, blog.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "text-lg lg:text-xl italic text-gray-300 mb-6 leading-relaxed"
-  }, prismic_reactjs__WEBPACK_IMPORTED_MODULE_2__.RichText.asText(blog.introduction.raw)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-base text-gray-400 mb-6"
-  }, blog.excerpt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, prismic_reactjs__WEBPACK_IMPORTED_MODULE_2__.RichText.asText(blog.introduction.raw)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "flex items-center space-x-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "text-base font-semibold"
@@ -373,30 +368,12 @@ const BlogPage = ({
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.WhatsappIcon, {
     size: 40,
     round: true
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "mt-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: "/blog",
-    className: "text-sm text-[#f6911e] hover:text-white flex items-center group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    className: "h-4 w-4 mr-2 group-hover:animate-bounce",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    stroke: "currentColor"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    strokeWidth: "2",
-    d: "M15 19l-7-7 7-7"
-  })), "Back to News & Media"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "bg-cover bg-center",
     style: {
       backgroundImage: `url(${((_blog$featured_image = blog.featured_image) === null || _blog$featured_image === void 0 ? void 0 : _blog$featured_image.url) || ""})`
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "prefooter-gray"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("article", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("article", {
     id: "article-content",
     className: "container mx-auto px-6 lg:px-20 py-10 flex flex-col lg:flex-row gap-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -404,49 +381,14 @@ const BlogPage = ({
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "text-sm text-gray-500 mb-4"
   }, "\u23F1 ", readTime, " min read"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "space-y-8 text-xl text-gray-800 leading-relaxed [&_a]:text-[#1e8e92] [&_a]:underline"
-  }, prismic_reactjs__WEBPACK_IMPORTED_MODULE_2__.RichText.render(blog.content.raw)), (_blog$multimedia = blog.multimedia) === null || _blog$multimedia === void 0 ? void 0 : _blog$multimedia.map((media, index) => {
-    var _media$media_file, _media$media_file2, _media$media_file3;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      key: index,
-      className: "mt-6"
-    }, media.media_type === "image" && ((_media$media_file = media.media_file) === null || _media$media_file === void 0 ? void 0 : _media$media_file.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      src: media.media_file.url,
-      alt: media.caption || "Story Image",
-      className: "w-full h-auto rounded-lg shadow-md"
-    }), media.caption && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-      className: "text-sm text-gray-500 mt-2 text-center"
-    }, media.caption)), media.media_type === "video" && ((_media$media_file2 = media.media_file) === null || _media$media_file2 === void 0 ? void 0 : _media$media_file2.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("video", {
-      controls: true,
-      className: "w-full h-auto rounded-lg shadow-md"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("source", {
-      src: media.media_file.url,
-      type: "video/mp4"
-    })), media.media_type === "audio" && ((_media$media_file3 = media.media_file) === null || _media$media_file3 === void 0 ? void 0 : _media$media_file3.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("audio", {
-      controls: true,
-      className: "w-full"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("source", {
-      src: media.media_file.url,
-      type: "audio/mpeg"
-    })));
-  }), ((_blog$quotes = blog.quotes) === null || _blog$quotes === void 0 ? void 0 : _blog$quotes.length) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "mt-12 p-6 bg-gray-50 rounded-lg border border-gray-200 shadow-md"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "text-2xl font-semibold text-gray-800 mb-4"
-  }, "Key Quotes"), blog.quotes.map((quote, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("blockquote", {
-    key: index,
-    className: "italic text-lg text-gray-600 border-l-4 border-gray-300 pl-4 mb-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "mb-2"
-  }, "\"", quote.quote_text, "\""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("footer", {
-    className: "text-sm text-gray-500"
-  }, "- ", quote.quote_author))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("aside", {
+    className: "space-y-8 text-xl text-gray-800 leading-relaxed"
+  }, prismic_reactjs__WEBPACK_IMPORTED_MODULE_2__.RichText.render(blog.content.raw))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("aside", {
     className: "w-full lg:w-1/4 lg:sticky lg:top-20 h-fit bg-gray-50 rounded-lg shadow-md p-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
     className: "mb-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
     className: "text-lg font-semibold text-gray-800 mb-4"
-  }, "Share this article"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "Share This Article"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "flex space-x-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.FacebookShareButton, {
     url: shareUrl,
@@ -471,18 +413,47 @@ const BlogPage = ({
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.WhatsappIcon, {
     size: 40,
     round: true
-  })))), ((_blog$tags = blog.tags) === null || _blog$tags === void 0 ? void 0 : _blog$tags.length) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
     className: "mb-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
     className: "text-lg font-semibold text-gray-800 mb-4"
-  }, "Tags"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex flex-wrap gap-2"
-  }, blog.tags.map((tag, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    key: index,
-    className: "px-4 py-2 text-sm font-medium bg-gray-200 text-gray-700 rounded-full"
-  }, tag.tag)))))));
+  }, "Read Further"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "space-y-4"
+  }, relatedPosts.map(({
+    node
+  }, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    key: index
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: `/blog/${node.uid}`,
+    className: "text-lg text-[#1e8e92] font-medium hover:underline"
+  }, node.data.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-sm text-gray-500"
+  }, "By ", node.data.author || "Unknown", " | ", node.data.publish_date || "No Date")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "mt-6 text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/blog",
+    className: "text-sm font-semibold text-[#f6911e] hover:underline"
+  }, "View More"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    className: "text-lg font-semibold text-gray-800 mb-4"
+  }, "Related Insights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "space-y-4"
+  }, relatedInsights.map(({
+    node
+  }, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    key: index
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: `/blog/${node.uid}`,
+    className: "text-lg text-[#1e8e92] font-medium hover:underline"
+  }, node.data.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-sm text-gray-500"
+  }, "By ", node.data.author || "Unknown", " | ", node.data.publish_date || "No Date")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "mt-6 text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/insights",
+    className: "text-sm font-semibold text-[#f6911e] hover:underline"
+  }, "View All Insights"))))));
 };
-const query = "1274884001";
+const query = "1070254803";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BlogPage);
 
 /***/ }),
