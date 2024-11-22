@@ -1,7 +1,11 @@
-import React from "react";
-import Layout from "../components/Layout";
-import MultimediaHome from "../components/Multimedia/MultimediaHome"; // Import MultimediaHome
+import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
+import Layout from "../components/Layout";
+import { FiFilter } from "react-icons/fi"; // Importing FiFilter
+import {
+  HiOutlineDownload,
+  HiOutlineArrowRight,
+} from "react-icons/hi";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -12,201 +16,247 @@ import {
   LinkedinIcon,
   WhatsappIcon,
 } from "react-share";
-import { HiOutlineDownload } from "react-icons/hi"; // Import download icon
-import latestPublicationImage from "../assets/images/alg-2023.png"; // Replace with actual image
 
-const PublicationsComponent = ({ data }) => {
-  const publicationArticles = data.allPrismicBlogPosts.nodes;
+const Publications = ({ data }) => {
+  const allPublications = data.allPrismicPublications.nodes;
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortBy, setSortBy] = useState("newest");
 
-  if (!publicationArticles || publicationArticles.length === 0) {
-    return <p className="text-center text-gray-600">No publications available.</p>;
-  }
+  // Extract unique categories
+  const categories = ["All", ...new Set(allPublications.flatMap(pub => 
+    pub.data.categories.map(cat => cat.category)
+  ))];
 
-  // Latest publication for hero section
-  const latestPublication = publicationArticles[0];
-  // Other publications
-  const otherPublications = publicationArticles.slice(1, 6);
+  // Filter and sort publications
+  const filteredPublications = allPublications
+    .filter(pub => selectedCategory === "All" || 
+      pub.data.categories.some(cat => cat.category === selectedCategory))
+    .sort((a, b) => {
+      if (sortBy === "newest") {
+        return new Date(b.data.publish_date) - new Date(a.data.publish_date);
+      }
+      return new Date(a.data.publish_date) - new Date(b.data.publish_date);
+    });
 
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  // Get featured publication (most recent)
+  const featuredPublication = filteredPublications[0];
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-[#1d8f92] text-white">
-        {/* Full-width background with aligned content */}
-        <div className="bg-[#545456]">
-          <div className="container mx-auto flex justify-between items-center px-6 lg:px-20 py-2">
-            <span className="text-sm font-bold text-white">
-              {latestPublication.data.categories[0]?.category || "Publication"}
-            </span>
-            <a
-              href="/path/to/publication.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-3 py-1 bg-[#1d8f92] text-white font-medium rounded hover:bg-white hover:text-[#1d8f92] transition-transform duration-300 transform hover:scale-105"
-            >
-              <HiOutlineDownload />
-              <span>Download PDF</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="container mx-auto px-6 lg:px-20 py-8 lg:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-6 lg:space-y-8">
-              <div className="space-y-2">
-                <p className="text-sm font-medium text-[#f6941e]">Our Latest Publications</p>
-                <hr className="border-t border-gray-300 w-[270px] animate-slide-in" />
-                <p className="text-sm">{latestPublication.data.publish_date}</p>
-              </div>
-              <h1 className="text-2xl sm:text-3xl font-bold leading-snug">
-                {latestPublication.data.title}
-              </h1>
-              {/* Compact Download Button */}
+      <section className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-6 lg:px-20">
+          {/* Top Bar */}
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-4xl font-bold">Publications</h1>
+            {featuredPublication?.data.pdf_file?.url && (
               <a
-                href="/path/to/publication.pdf"
+                href={featuredPublication.data.pdf_file.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-2 py-1 bg-[#f6941e] text-white font-medium rounded hover:bg-[#1d8f92] transition-transform duration-300 transform hover:scale-105"
-                style={{ maxWidth: "116px" }}
+                className="flex items-center bg-[#f6941e] text-white px-4 py-2 rounded hover:bg-white hover:text-[#f6941e] transition"
               >
-                <HiOutlineDownload />
-                <span>Download</span>
+                <HiOutlineDownload className="mr-2" />
+                Download PDF
               </a>
-              <p className="text-base text-gray-200 leading-relaxed">
-                This report delves into groundbreaking insights and transformative ideas,
-                offering actionable recommendations for meaningful change. Stay informed
-                and explore key findings shaping critical discussions today.
-              </p>
-              {/* Social Share Section */}
-              <div className="flex items-center space-x-3">
-                <span className="text-sm font-medium text-gray-300">Share Publication:</span>
-                <FacebookShareButton url={shareUrl}>
-                  <FacebookIcon
-                    size={32}
-                    round
-                    className="hover:scale-110 transition-transform duration-300"
-                    style={{ fill: "white", backgroundColor: "transparent" }}
-                  />
-                </FacebookShareButton>
-                <TwitterShareButton url={shareUrl}>
-                  <TwitterIcon
-                    size={32}
-                    round
-                    className="hover:scale-110 transition-transform duration-300"
-                    style={{ fill: "white", backgroundColor: "transparent" }}
-                  />
-                </TwitterShareButton>
-                <LinkedinShareButton url={shareUrl}>
-                  <LinkedinIcon
-                    size={32}
-                    round
-                    className="hover:scale-110 transition-transform duration-300"
-                    style={{ fill: "white", backgroundColor: "transparent" }}
-                  />
-                </LinkedinShareButton>
-                <WhatsappShareButton url={shareUrl}>
-                  <WhatsappIcon
-                    size={32}
-                    round
-                    className="hover:scale-110 transition-transform duration-300"
-                    style={{ fill: "white", backgroundColor: "transparent" }}
-                  />
-                </WhatsappShareButton>
+            )}
+          </div>
+
+          {/* Featured Publication */}
+          {featuredPublication ? (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-800 p-6 rounded-lg shadow-lg">
+              {/* Left Content */}
+              <div className="space-y-6">
+                <p className="text-sm font-medium uppercase text-[#f6941e]">
+                  Our Latest Publication
+                </p>
+                <div className="space-y-2">
+                  <span className="text-sm font-medium bg-[#f6941e] px-3 py-1 rounded-full">
+                    {featuredPublication.data.categories[0]?.category || "Featured"}
+                  </span>
+                  <p className="text-sm">{featuredPublication.data.publish_date}</p>
+                  <p className="text-sm">
+                    Author:{" "}
+                    <span className="font-medium">
+                      {featuredPublication.data.authors?.[0]?.author_name || "Unknown"}
+                    </span>
+                  </p>
+                </div>
+                <h1 className="text-3xl font-bold leading-tight">
+                  {featuredPublication.data.title}
+                </h1>
+                <div className="prose prose-invert max-w-none text-gray-300">
+                  {featuredPublication.data.description.text}
+                </div>
+                {featuredPublication.data.pdf_file?.url && (
+                  <a
+                    href={featuredPublication.data.pdf_file.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 px-4 py-2 bg-[#f6941e] text-white font-medium rounded hover:bg-white hover:text-[#f6941e] transition-all duration-300"
+                  >
+                    <HiOutlineDownload className="w-5 h-5" />
+                    <span>Download Publication</span>
+                  </a>
+                )}
+
+                {/* Social Media Share */}
+                <div className="flex space-x-4 mt-4">
+                  <FacebookShareButton url={featuredPublication.data.pdf_file?.url}>
+                    <FacebookIcon size={40} round />
+                  </FacebookShareButton>
+                  <TwitterShareButton url={featuredPublication.data.pdf_file?.url}>
+                    <TwitterIcon size={40} round />
+                  </TwitterShareButton>
+                  <LinkedinShareButton url={featuredPublication.data.pdf_file?.url}>
+                    <LinkedinIcon size={40} round />
+                  </LinkedinShareButton>
+                  <WhatsappShareButton url={featuredPublication.data.pdf_file?.url}>
+                    <WhatsappIcon size={40} round />
+                  </WhatsappShareButton>
+                </div>
+              </div>
+
+              {/* Right Image */}
+              <div>
+                <img
+                  src={featuredPublication.data.featured_image.url}
+                  alt={featuredPublication.data.featured_image.alt || featuredPublication.data.title}
+                  className="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                />
               </div>
             </div>
-            {/* Right Image */}
-            <div>
-              <img
-                src={latestPublicationImage}
-                alt="Latest Publication"
-                className="w-full max-w-sm h-auto rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
-              />
+          ) : (
+            <div className="text-center">
+              <p className="text-2xl font-bold">No publications available</p>
             </div>
-          </div>
+          )}
         </div>
       </section>
-      <div className='prefooter'></div>
 
-      {/* Publications Section */}
-      <div className="container mx-auto px-6 lg:px-20 py-10">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Explore</h2>
-        <p className="text-lg text-gray-600 mb-6">
-          Explore a curated collection of thought-provoking publications that reflect the
-          LéO Africa Institute’s commitment to advancing transformative ideas and fostering
-          impactful change. Dive into these expertly crafted works to uncover
-          innovative perspectives and actionable recommendations designed to shape a brighter,
-          more inclusive future.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {otherPublications.map((article) => (
-            <div
-              key={article.id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
+      {/* Publications Listing Section */}
+      <section className="container mx-auto px-6 lg:px-20 py-12">
+        {/* Filters and Sorting */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 space-y-4 sm:space-y-0">
+          <div className="flex items-center space-x-4">
+            <FiFilter className="text-gray-500" />
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1d8f92]"
             >
-              <Link to={`/blog/${article.uid}`}>
-                {article.data.featured_image?.url && (
-                  <img
-                    src={article.data.featured_image.url}
-                    alt={article.data.title}
-                    className="w-full h-48 object-cover"
-                  />
-                )}
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <span className="text-gray-500">Sort by:</span>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1d8f92]"
+            >
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Publications Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredPublications.slice(1).map((publication) => (
+            <div 
+              key={publication.id}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              <Link to={`/publications/${publication.uid}`}>
+                <img
+                  src={publication.data.featured_image.url}
+                  alt={publication.data.featured_image.alt || publication.data.title}
+                  className="w-full h-48 object-cover"
+                />
               </Link>
-              <div className="p-4">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  <Link
-                    to={`/blog/${article.uid}`}
-                    className="hover:text-[#1e8e92] transition-colors"
+              
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm text-[#f6941e] font-medium">
+                    {publication.data.categories[0]?.category}
+                  </span>
+                  <span className="text-sm text-gray-500">
+                    {publication.data.publish_date}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  <Link 
+                    to={`/publications/${publication.uid}`}
+                    className="hover:text-[#1d8f92] transition-colors duration-300"
                   >
-                    {article.data.title}
+                    {publication.data.title}
                   </Link>
                 </h3>
-                <p className="text-sm text-gray-500 mb-2">
-                  Published on {article.data.publish_date}
+
+                <p className="text-gray-600 mb-4 line-clamp-3">
+                  {publication.data.description.text}
                 </p>
-                <Link
-                  to={`/blog/${article.uid}`}
-                  className="mt-4 inline-block text-[#1e8e92] font-semibold hover:underline"
-                >
-                  Read More →
-                </Link>
+
+                <div className="flex items-center justify-between">
+                  <Link 
+                    to={`/publications/${publication.uid}`}
+                    className="text-[#1d8f92] font-medium hover:underline"
+                  >
+                    Read More
+                  </Link>
+                  
+                  {publication.data.pdf_file?.url && (
+                    <a
+                      href={publication.data.pdf_file.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 text-gray-600 hover:text-[#1d8f92]"
+                    >
+                      <HiOutlineDownload className="w-5 h-5" />
+                      <span>Download</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Horizontal Line */}
-      <hr className="my-12 border-t-2 border-gray-300 w-11/12 mx-auto" />
-
-      {/* Multimedia Section */}
-      <div className="container mx-auto px-6 lg:px-20 py-10">
-        <MultimediaHome data={data} />
-      </div>
+      </section>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query {
-    allPrismicBlogPosts(
-      filter: { data: { categories: { elemMatch: { category: { eq: "Publications" } } } } }
-      sort: { fields: data___publish_date, order: DESC }
-    ) {
+  query AllPublications {
+    allPrismicPublications(sort: { fields: data___publish_date, order: DESC }) {
       nodes {
         id
         uid
         data {
           title
-          publish_date
+          publish_date(formatString: "MMMM D, YYYY")
           featured_image {
+            url
+            alt
+          }
+          description {
+            text
+          }
+          pdf_file {
             url
           }
           categories {
             category
+          }
+          authors {
+            author_name
           }
         }
       }
@@ -214,4 +264,4 @@ export const query = graphql`
   }
 `;
 
-export default PublicationsComponent;
+export default Publications;

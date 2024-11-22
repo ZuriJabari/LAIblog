@@ -26,6 +26,7 @@ exports.components = {
   "component---src-pages-register-townhall-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/register-townhall.js")),
   "component---src-pages-search-results-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/searchResults.js")),
   "component---src-pages-speakers-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/pages/speakers.js")),
-  "component---src-templates-blog-post-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/templates/blogPost.js"))
+  "component---src-templates-blog-post-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/templates/blogPost.js")),
+  "component---src-templates-publication-js": preferDefault(require("/Users/olara/Desktop/LAI/frontend/src/templates/publication.js"))
 }
 

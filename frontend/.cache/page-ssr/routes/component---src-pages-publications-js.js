@@ -256,103 +256,6 @@ const Layout = ({
 
 /***/ }),
 
-/***/ "./src/components/Multimedia/MultimediaHome.js":
-/*!*****************************************************!*\
-  !*** ./src/components/Multimedia/MultimediaHome.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-
-
-const MultimediaHome = ({
-  data
-}) => {
-  var _data$allPrismicBlogP, _featuredItem$data$fe;
-  const multimediaItems = (data === null || data === void 0 ? void 0 : (_data$allPrismicBlogP = data.allPrismicBlogPosts) === null || _data$allPrismicBlogP === void 0 ? void 0 : _data$allPrismicBlogP.nodes) || [];
-  const featuredItem = multimediaItems[0]; // The first item as featured
-  const otherItems = multimediaItems.slice(1); // The rest as cards
-
-  if (multimediaItems.length === 0) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-      className: "text-center text-gray-600"
-    }, "No multimedia items available.");
-  }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "container mx-auto px-6 lg:px-20 py-10"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-4xl font-bold text-gray-800 mb-6"
-  }, "Latest Updates"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-lg text-gray-600 mb-10"
-  }, "Explore a curated selection of our most recent multimedia content, offering insights, stories, and impactful updates."), featuredItem && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "relative bg-white shadow-xl rounded-lg overflow-hidden mb-12 group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: `/blog/${featuredItem.uid}`
-  }, ((_featuredItem$data$fe = featuredItem.data.featured_image) === null || _featuredItem$data$fe === void 0 ? void 0 : _featuredItem$data$fe.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: featuredItem.data.featured_image.url,
-    alt: featuredItem.data.title || "Featured Article",
-    className: "w-full h-80 object-cover group-hover:opacity-90 transition-opacity duration-300"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "absolute bottom-6 left-6 z-10 text-white space-y-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "text-3xl font-bold"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: `/blog/${featuredItem.uid}`,
-    className: "hover:underline"
-  }, featuredItem.data.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-sm text-gray-300"
-  }, "Published on ", featuredItem.data.publish_date, " by", " ", featuredItem.data.author || "Unknown"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: `/blog/${featuredItem.uid}`,
-    className: "inline-block bg-[#f6941e] text-white py-2 px-6 rounded-full font-semibold uppercase hover:bg-[#fff] hover:text-[#f6941e] transition-transform transform hover:scale-105"
-  }, "Read More \u2192"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "text-3xl font-bold text-gray-800 mb-6"
-  }, "More Insights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-  }, otherItems.map(item => {
-    var _item$data$featured_i, _item$data$categories;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      key: item.id,
-      className: "bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: `/blog/${item.uid}`
-    }, ((_item$data$featured_i = item.data.featured_image) === null || _item$data$featured_i === void 0 ? void 0 : _item$data$featured_i.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      src: item.data.featured_image.url,
-      alt: item.data.title || "Article",
-      className: "w-full h-48 object-cover"
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "p-4"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-      className: "text-xl font-bold text-gray-800 mb-2"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: `/blog/${item.uid}`,
-      className: "hover:underline"
-    }, item.data.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-      className: "text-sm text-gray-500 mb-2"
-    }, "Published on ", item.data.publish_date, " by", " ", item.data.author || "Unknown"), ((_item$data$categories = item.data.categories) === null || _item$data$categories === void 0 ? void 0 : _item$data$categories.length) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "flex flex-wrap gap-2 mb-4"
-    }, item.data.categories.map((category, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: `/${category.category.toLowerCase()}`,
-      key: index,
-      className: "px-3 py-1 text-sm font-medium text-white bg-[#1d8f92] rounded-full hover:bg-[#f6941e] transition-colors"
-    }, category.category))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: `/blog/${item.uid}`,
-      className: "mt-2 inline-block text-[#1e8e92] font-semibold hover:underline"
-    }, "Read More \u2192")));
-  })));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MultimediaHome);
-
-/***/ }),
-
 /***/ "./src/pages/publications.js?export=default":
 /*!**************************************************!*\
   !*** ./src/pages/publications.js?export=default ***!
@@ -366,167 +269,188 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Layout */ "./src/components/Layout.js");
-/* harmony import */ var _components_Multimedia_MultimediaHome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Multimedia/MultimediaHome */ "./src/components/Multimedia/MultimediaHome.js");
-/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
-/* harmony import */ var react_share__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-share */ "./node_modules/react-share/dist/index.js");
-/* harmony import */ var react_icons_hi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/hi */ "./node_modules/react-icons/hi/index.mjs");
-/* harmony import */ var _assets_images_alg_2023_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/images/alg-2023.png */ "./src/assets/images/alg-2023.png");
+/* harmony import */ var gatsby__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gatsby */ "./.cache/gatsby-browser-entry.js");
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Layout */ "./src/components/Layout.js");
+/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.mjs");
+/* harmony import */ var react_icons_hi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/hi */ "./node_modules/react-icons/hi/index.mjs");
+/* harmony import */ var react_share__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-share */ "./node_modules/react-share/dist/index.js");
 
 
- // Import MultimediaHome
+
+ // Importing FiFilter
 
 
- // Import download icon
- // Replace with actual image
-
-const PublicationsComponent = ({
+const Publications = ({
   data
 }) => {
-  var _latestPublication$da;
-  const publicationArticles = data.allPrismicBlogPosts.nodes;
-  if (!publicationArticles || publicationArticles.length === 0) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-      className: "text-center text-gray-600"
-    }, "No publications available.");
-  }
+  var _featuredPublication$, _featuredPublication$2, _featuredPublication$3, _featuredPublication$4, _featuredPublication$5, _featuredPublication$6, _featuredPublication$7, _featuredPublication$8, _featuredPublication$9;
+  const allPublications = data.allPrismicPublications.nodes;
+  const {
+    0: selectedCategory,
+    1: setSelectedCategory
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("All");
+  const {
+    0: sortBy,
+    1: setSortBy
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("newest");
 
-  // Latest publication for hero section
-  const latestPublication = publicationArticles[0];
-  // Other publications
-  const otherPublications = publicationArticles.slice(1, 6);
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "relative bg-[#1d8f92] text-white"
+  // Extract unique categories
+  const categories = ["All", ...new Set(allPublications.flatMap(pub => pub.data.categories.map(cat => cat.category)))];
+
+  // Filter and sort publications
+  const filteredPublications = allPublications.filter(pub => selectedCategory === "All" || pub.data.categories.some(cat => cat.category === selectedCategory)).sort((a, b) => {
+    if (sortBy === "newest") {
+      return new Date(b.data.publish_date) - new Date(a.data.publish_date);
+    }
+    return new Date(a.data.publish_date) - new Date(b.data.publish_date);
+  });
+
+  // Get featured publication (most recent)
+  const featuredPublication = filteredPublications[0];
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "bg-gray-900 text-white py-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "bg-[#545456]"
+    className: "container mx-auto px-6 lg:px-20"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "container mx-auto flex justify-between items-center px-6 lg:px-20 py-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "text-sm font-bold text-white"
-  }, ((_latestPublication$da = latestPublication.data.categories[0]) === null || _latestPublication$da === void 0 ? void 0 : _latestPublication$da.category) || "Publication"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/path/to/publication.pdf",
+    className: "flex justify-between items-center mb-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    className: "text-4xl font-bold"
+  }, "Publications"), (featuredPublication === null || featuredPublication === void 0 ? void 0 : (_featuredPublication$ = featuredPublication.data.pdf_file) === null || _featuredPublication$ === void 0 ? void 0 : _featuredPublication$.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: featuredPublication.data.pdf_file.url,
     target: "_blank",
     rel: "noopener noreferrer",
-    className: "flex items-center space-x-2 px-3 py-1 bg-[#1d8f92] text-white font-medium rounded hover:bg-white hover:text-[#1d8f92] transition-transform duration-300 transform hover:scale-105"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_hi__WEBPACK_IMPORTED_MODULE_5__.HiOutlineDownload, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Download PDF")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "container mx-auto px-6 lg:px-20 py-8 lg:py-12"
+    className: "flex items-center bg-[#f6941e] text-white px-4 py-2 rounded hover:bg-white hover:text-[#f6941e] transition"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_hi__WEBPACK_IMPORTED_MODULE_3__.HiOutlineDownload, {
+    className: "mr-2"
+  }), "Download PDF")), featuredPublication ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-800 p-6 rounded-lg shadow-lg"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "space-y-6 lg:space-y-8"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "space-y-2"
+    className: "space-y-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-sm font-medium text-[#f6941e]"
-  }, "Our Latest Publications"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", {
-    className: "border-t border-gray-300 w-[270px] animate-slide-in"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-sm font-medium uppercase text-[#f6941e]"
+  }, "Our Latest Publication"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "space-y-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "text-sm font-medium bg-[#f6941e] px-3 py-1 rounded-full"
+  }, ((_featuredPublication$2 = featuredPublication.data.categories[0]) === null || _featuredPublication$2 === void 0 ? void 0 : _featuredPublication$2.category) || "Featured"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "text-sm"
-  }, latestPublication.data.publish_date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
-    className: "text-2xl sm:text-3xl font-bold leading-snug"
-  }, latestPublication.data.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/path/to/publication.pdf",
+  }, featuredPublication.data.publish_date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-sm"
+  }, "Author:", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "font-medium"
+  }, ((_featuredPublication$3 = featuredPublication.data.authors) === null || _featuredPublication$3 === void 0 ? void 0 : (_featuredPublication$4 = _featuredPublication$3[0]) === null || _featuredPublication$4 === void 0 ? void 0 : _featuredPublication$4.author_name) || "Unknown"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    className: "text-3xl font-bold leading-tight"
+  }, featuredPublication.data.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "prose prose-invert max-w-none text-gray-300"
+  }, featuredPublication.data.description.text), ((_featuredPublication$5 = featuredPublication.data.pdf_file) === null || _featuredPublication$5 === void 0 ? void 0 : _featuredPublication$5.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: featuredPublication.data.pdf_file.url,
     target: "_blank",
     rel: "noopener noreferrer",
-    className: "flex items-center space-x-2 px-2 py-1 bg-[#f6941e] text-white font-medium rounded hover:bg-[#1d8f92] transition-transform duration-300 transform hover:scale-105",
-    style: {
-      maxWidth: "116px"
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_hi__WEBPACK_IMPORTED_MODULE_5__.HiOutlineDownload, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Download")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-base text-gray-200 leading-relaxed"
-  }, "This report delves into groundbreaking insights and transformative ideas, offering actionable recommendations for meaningful change. Stay informed and explore key findings shaping critical discussions today."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex items-center space-x-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "text-sm font-medium text-gray-300"
-  }, "Share Publication:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_6__.FacebookShareButton, {
-    url: shareUrl
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_6__.FacebookIcon, {
-    size: 32,
-    round: true,
-    className: "hover:scale-110 transition-transform duration-300",
-    style: {
-      fill: "white",
-      backgroundColor: "transparent"
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_6__.TwitterShareButton, {
-    url: shareUrl
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_6__.TwitterIcon, {
-    size: 32,
-    round: true,
-    className: "hover:scale-110 transition-transform duration-300",
-    style: {
-      fill: "white",
-      backgroundColor: "transparent"
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_6__.LinkedinShareButton, {
-    url: shareUrl
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_6__.LinkedinIcon, {
-    size: 32,
-    round: true,
-    className: "hover:scale-110 transition-transform duration-300",
-    style: {
-      fill: "white",
-      backgroundColor: "transparent"
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_6__.WhatsappShareButton, {
-    url: shareUrl
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_6__.WhatsappIcon, {
-    size: 32,
-    round: true,
-    className: "hover:scale-110 transition-transform duration-300",
-    style: {
-      fill: "white",
-      backgroundColor: "transparent"
-    }
+    className: "inline-flex items-center space-x-2 px-4 py-2 bg-[#f6941e] text-white font-medium rounded hover:bg-white hover:text-[#f6941e] transition-all duration-300"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_hi__WEBPACK_IMPORTED_MODULE_3__.HiOutlineDownload, {
+    className: "w-5 h-5"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Download Publication")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "flex space-x-4 mt-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.FacebookShareButton, {
+    url: (_featuredPublication$6 = featuredPublication.data.pdf_file) === null || _featuredPublication$6 === void 0 ? void 0 : _featuredPublication$6.url
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.FacebookIcon, {
+    size: 40,
+    round: true
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.TwitterShareButton, {
+    url: (_featuredPublication$7 = featuredPublication.data.pdf_file) === null || _featuredPublication$7 === void 0 ? void 0 : _featuredPublication$7.url
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.TwitterIcon, {
+    size: 40,
+    round: true
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.LinkedinShareButton, {
+    url: (_featuredPublication$8 = featuredPublication.data.pdf_file) === null || _featuredPublication$8 === void 0 ? void 0 : _featuredPublication$8.url
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.LinkedinIcon, {
+    size: 40,
+    round: true
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.WhatsappShareButton, {
+    url: (_featuredPublication$9 = featuredPublication.data.pdf_file) === null || _featuredPublication$9 === void 0 ? void 0 : _featuredPublication$9.url
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_share__WEBPACK_IMPORTED_MODULE_4__.WhatsappIcon, {
+    size: 40,
+    round: true
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: _assets_images_alg_2023_png__WEBPACK_IMPORTED_MODULE_4__["default"],
-    alt: "Latest Publication",
-    className: "w-full max-w-sm h-auto rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
-  }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "prefooter"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "container mx-auto px-6 lg:px-20 py-10"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-3xl font-bold text-gray-800 mb-4"
-  }, "Explore"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-lg text-gray-600 mb-6"
-  }, "Explore a curated collection of thought-provoking publications that reflect the L\xE9O Africa Institute\u2019s commitment to advancing transformative ideas and fostering impactful change. Dive into these expertly crafted works to uncover innovative perspectives and actionable recommendations designed to shape a brighter, more inclusive future."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-  }, otherPublications.map(article => {
-    var _article$data$feature;
+    src: featuredPublication.data.featured_image.url,
+    alt: featuredPublication.data.featured_image.alt || featuredPublication.data.title,
+    className: "w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+  }))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-2xl font-bold"
+  }, "No publications available")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "container mx-auto px-6 lg:px-20 py-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 space-y-4 sm:space-y-0"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "flex items-center space-x-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_5__.FiFilter, {
+    className: "text-gray-500"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
+    value: selectedCategory,
+    onChange: e => setSelectedCategory(e.target.value),
+    className: "border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1d8f92]"
+  }, categories.map(category => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    key: category,
+    value: category
+  }, category)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "flex items-center space-x-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "text-gray-500"
+  }, "Sort by:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
+    value: sortBy,
+    onChange: e => setSortBy(e.target.value),
+    className: "border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1d8f92]"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "newest"
+  }, "Newest First"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "oldest"
+  }, "Oldest First")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+  }, filteredPublications.slice(1).map(publication => {
+    var _publication$data$cat, _publication$data$pdf;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      key: article.id,
-      className: "bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_3__.Link, {
-      to: `/blog/${article.uid}`
-    }, ((_article$data$feature = article.data.featured_image) === null || _article$data$feature === void 0 ? void 0 : _article$data$feature.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-      src: article.data.featured_image.url,
-      alt: article.data.title,
+      key: publication.id,
+      className: "bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      to: `/publications/${publication.uid}`
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+      src: publication.data.featured_image.url,
+      alt: publication.data.featured_image.alt || publication.data.title,
       className: "w-full h-48 object-cover"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "p-4"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-      className: "text-xl font-bold text-gray-800 mb-2"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_3__.Link, {
-      to: `/blog/${article.uid}`,
-      className: "hover:text-[#1e8e92] transition-colors"
-    }, article.data.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-      className: "text-sm text-gray-500 mb-2"
-    }, "Published on ", article.data.publish_date), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_3__.Link, {
-      to: `/blog/${article.uid}`,
-      className: "mt-4 inline-block text-[#1e8e92] font-semibold hover:underline"
-    }, "Read More \u2192")));
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", {
-    className: "my-12 border-t-2 border-gray-300 w-11/12 mx-auto"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "container mx-auto px-6 lg:px-20 py-10"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Multimedia_MultimediaHome__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    data: data
-  })));
+      className: "p-6"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "flex items-center justify-between mb-4"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+      className: "text-sm text-[#f6941e] font-medium"
+    }, (_publication$data$cat = publication.data.categories[0]) === null || _publication$data$cat === void 0 ? void 0 : _publication$data$cat.category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+      className: "text-sm text-gray-500"
+    }, publication.data.publish_date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+      className: "text-xl font-bold text-gray-900 mb-3"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      to: `/publications/${publication.uid}`,
+      className: "hover:text-[#1d8f92] transition-colors duration-300"
+    }, publication.data.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      className: "text-gray-600 mb-4 line-clamp-3"
+    }, publication.data.description.text), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+      className: "flex items-center justify-between"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      to: `/publications/${publication.uid}`,
+      className: "text-[#1d8f92] font-medium hover:underline"
+    }, "Read More"), ((_publication$data$pdf = publication.data.pdf_file) === null || _publication$data$pdf === void 0 ? void 0 : _publication$data$pdf.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+      href: publication.data.pdf_file.url,
+      target: "_blank",
+      rel: "noopener noreferrer",
+      className: "inline-flex items-center space-x-2 text-gray-600 hover:text-[#1d8f92]"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_hi__WEBPACK_IMPORTED_MODULE_3__.HiOutlineDownload, {
+      className: "w-5 h-5"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Download")))));
+  }))));
 };
-const query = "858656952";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PublicationsComponent);
+const query = "2872637812";
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Publications);
 
 /***/ }),
 
@@ -2856,21 +2780,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/static/ALG-Patterns-66a944e460a16d1a8e522183efd76883.png");
-
-/***/ }),
-
-/***/ "./src/assets/images/alg-2023.png":
-/*!****************************************!*\
-  !*** ./src/assets/images/alg-2023.png ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/static/alg-2023-b48ea107814dd904c00d084e72dff7d3.png");
 
 /***/ }),
 

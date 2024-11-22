@@ -21,7 +21,8 @@ exports.components = {
   "component---src-pages-register-townhall-js": () => import("./../../../src/pages/register-townhall.js?export=default" /* webpackChunkName: "component---src-pages-register-townhall-js" */),
   "component---src-pages-search-results-js": () => import("./../../../src/pages/searchResults.js?export=default" /* webpackChunkName: "component---src-pages-search-results-js" */),
   "component---src-pages-speakers-js": () => import("./../../../src/pages/speakers.js?export=default" /* webpackChunkName: "component---src-pages-speakers-js" */),
-  "component---src-templates-blog-post-js": () => import("./../../../src/templates/blogPost.js?export=default" /* webpackChunkName: "component---src-templates-blog-post-js" */)
+  "component---src-templates-blog-post-js": () => import("./../../../src/templates/blogPost.js?export=default" /* webpackChunkName: "component---src-templates-blog-post-js" */),
+  "component---src-templates-publication-js": () => import("./../../../src/templates/publication.js?export=default" /* webpackChunkName: "component---src-templates-publication-js" */)
 }
 
 

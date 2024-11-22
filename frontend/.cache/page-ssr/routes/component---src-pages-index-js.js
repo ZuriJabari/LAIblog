@@ -515,10 +515,10 @@ __webpack_require__.r(__webpack_exports__);
 const MultimediaHome = ({
   data
 }) => {
-  var _data$allPrismicBlogP, _featuredItem$data$fe;
+  var _data$allPrismicBlogP, _featuredItem$data$ca;
   const multimediaItems = (data === null || data === void 0 ? void 0 : (_data$allPrismicBlogP = data.allPrismicBlogPosts) === null || _data$allPrismicBlogP === void 0 ? void 0 : _data$allPrismicBlogP.nodes) || [];
   const featuredItem = multimediaItems[0]; // The first item as featured
-  const otherItems = multimediaItems.slice(1); // The rest as cards
+  const otherItems = multimediaItems.slice(1, 7); // The next 6 items for More Insights
 
   if (multimediaItems.length === 0) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
@@ -526,34 +526,47 @@ const MultimediaHome = ({
     }, "No multimedia items available.");
   }
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "container mx-auto px-6 lg:px-20 py-10"
+    className: "container mx-auto px-6 lg:px-20 py-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "flex justify-between items-center mb-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-4xl font-bold text-gray-800 mb-6"
-  }, "Latest Updates"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-4xl font-bold text-gray-800"
+  }, "Latest Multimedia Updates"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/blog",
+    className: "text-[#1d8f92] font-semibold hover:underline"
+  }, "View All Insights \u2192")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "text-lg text-gray-600 mb-10"
-  }, "Explore a curated selection of our most recent multimedia content, offering insights, stories, and impactful updates."), featuredItem && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "relative bg-white shadow-xl rounded-lg overflow-hidden mb-12 group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: `/blog/${featuredItem.uid}`
-  }, ((_featuredItem$data$fe = featuredItem.data.featured_image) === null || _featuredItem$data$fe === void 0 ? void 0 : _featuredItem$data$fe.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: featuredItem.data.featured_image.url,
-    alt: featuredItem.data.title || "Featured Article",
-    className: "w-full h-80 object-cover group-hover:opacity-90 transition-opacity duration-300"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "absolute bottom-6 left-6 z-10 text-white space-y-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "text-3xl font-bold"
+  }, "Discover our latest multimedia content, stories, and impactful updates."), featuredItem && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "relative bg-white shadow-xl rounded-lg overflow-hidden mb-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "space-y-6 p-6 lg:p-10"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "flex items-center space-x-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "text-sm font-medium bg-[#f6941e] text-white px-3 py-1 rounded-full"
+  }, "Featured"), ((_featuredItem$data$ca = featuredItem.data.categories) === null || _featuredItem$data$ca === void 0 ? void 0 : _featuredItem$data$ca.length) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "text-sm font-medium bg-[#1d8f92] text-white px-3 py-1 rounded-full"
+  }, featuredItem.data.categories[0].category)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-gray-500 text-sm"
+  }, "Published on ", featuredItem.data.publish_date, " by", " ", featuredItem.data.author || "Unknown"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    className: "text-4xl font-extrabold leading-tight text-gray-800"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: `/blog/${featuredItem.uid}`,
     className: "hover:underline"
   }, featuredItem.data.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-sm text-gray-300"
-  }, "Published on ", featuredItem.data.publish_date, " by", " ", featuredItem.data.author || "Unknown"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: "text-lg text-gray-600"
+  }, featuredItem.data.excerpt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: `/blog/${featuredItem.uid}`,
-    className: "inline-block bg-[#f6941e] text-white py-2 px-6 rounded-full font-semibold uppercase hover:bg-[#fff] hover:text-[#f6941e] transition-transform transform hover:scale-105"
-  }, "Read More \u2192"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    className: "inline-block bg-[#1d8f92] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#f6941e] transition-all duration-300"
+  }, "Read More \u2192")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "relative h-80 lg:h-full rounded-lg overflow-hidden shadow-lg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: featuredItem.data.featured_image.url,
+    alt: featuredItem.data.featured_image.alt || featuredItem.data.title,
+    className: "w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
     className: "text-3xl font-bold text-gray-800 mb-6"
   }, "More Insights"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -561,7 +574,7 @@ const MultimediaHome = ({
     var _item$data$featured_i, _item$data$categories;
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       key: item.id,
-      className: "bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
+      className: "bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
       to: `/blog/${item.uid}`
     }, ((_item$data$featured_i = item.data.featured_image) === null || _item$data$featured_i === void 0 ? void 0 : _item$data$featured_i.url) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
@@ -570,7 +583,7 @@ const MultimediaHome = ({
       className: "w-full h-48 object-cover"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: "p-4"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
       className: "text-xl font-bold text-gray-800 mb-2"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
       to: `/blog/${item.uid}`,
@@ -579,15 +592,19 @@ const MultimediaHome = ({
       className: "text-sm text-gray-500 mb-2"
     }, "Published on ", item.data.publish_date, " by", " ", item.data.author || "Unknown"), ((_item$data$categories = item.data.categories) === null || _item$data$categories === void 0 ? void 0 : _item$data$categories.length) > 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: "flex flex-wrap gap-2 mb-4"
-    }, item.data.categories.map((category, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      to: `/${category.category.toLowerCase()}`,
+    }, item.data.categories.map((category, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
       key: index,
       className: "px-3 py-1 text-sm font-medium text-white bg-[#1d8f92] rounded-full hover:bg-[#f6941e] transition-colors"
     }, category.category))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
       to: `/blog/${item.uid}`,
       className: "mt-2 inline-block text-[#1e8e92] font-semibold hover:underline"
     }, "Read More \u2192")));
-  })));
+  })), multimediaItems.length > 7 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "text-right mt-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/blog",
+    className: "text-[#1d8f92] font-semibold hover:underline"
+  }, "View More \u2192")));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MultimediaHome);
 
