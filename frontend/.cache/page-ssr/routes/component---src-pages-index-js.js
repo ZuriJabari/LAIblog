@@ -983,8 +983,23 @@ const Pillars = () => {
     className: "text-base leading-relaxed mb-5 text-[#F0F0F0]"
   }, pillar.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: pillar.link,
-    className: "inline-block mt-auto text-[#F89131] bg-white py-2 px-5 rounded-full font-semibold transition-transform duration-300 transform group-hover:-translate-y-1 group-hover:scale-105"
-  }, "Learn more..."))))));
+    className: "inline-flex items-center mt-auto py-2 px-5 rounded-full font-semibold transition-transform duration-300 transform group-hover:-translate-y-1 group-hover:scale-105",
+    style: {
+      backgroundColor: "white",
+      color: pillar.bgColor
+    }
+  }, "Learn more", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    className: "ml-2 w-5 h-5 transition-transform group-hover:translate-x-1",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    viewBox: "0 0 24 24",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    d: "M9 5l7 7-7 7"
+  }))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pillars);
 
@@ -1051,7 +1066,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.mjs");
+/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.mjs");
+/* harmony import */ var _assets_images_alg_color_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/images/alg-color.svg */ "./src/assets/images/alg-color.svg");
+
 
 
 const upcomingEvent = {
@@ -1059,7 +1076,7 @@ const upcomingEvent = {
   date: "14th - 16th November 2024, All Day",
   location: "Sheraton Kampala Hotel, Kampala, Uganda",
   description: "The Annual Leaders Gathering is LéO Africa Institute’s premier event, bringing together visionary leaders for discussions, networking, and collaborations aimed at reshaping Africa’s future.",
-  image: "/path/to/alg-image.jpg"
+  image: _assets_images_alg_color_svg__WEBPACK_IMPORTED_MODULE_1__["default"]
 };
 const otherEvents = [{
   title: "Huduma Class of 2024 Workshop One",
@@ -1116,9 +1133,9 @@ const Events = () => {
   }, "Venue:", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "text-[#545454] font-normal"
   }, upcomingEvent.location)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/register",
+    href: "https://alg.leoafricainstitute.org/speakers/",
     className: "inline-flex items-center bg-[#762e2f] text-white py-3 px-8 rounded-full font-semibold shadow-md transition-transform duration-300 hover:bg-[#f6911e] hover:scale-105"
-  }, "Reserve Your Spot", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_1__.FiArrowRight, {
+  }, "Follow #ALG2024", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_2__.FiArrowRight, {
     className: "ml-2 transition-transform duration-300 transform group-hover:translate-x-1 group-hover:scale-110"
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "space-y-8"
@@ -1150,14 +1167,14 @@ const Events = () => {
     className: "flex items-center text-[#762e2f] hover:text-[#f6911e]",
     target: "_blank",
     rel: "noopener noreferrer"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_1__.FiCamera, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_2__.FiCamera, {
     className: "mr-1"
   }), " Flickr Album"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: event.youtube,
     className: "flex items-center text-[#762e2f] hover:text-[#f6911e]",
     target: "_blank",
     rel: "noopener noreferrer"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_1__.FiYoutube, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_2__.FiYoutube, {
     className: "mr-1"
   }), " Watch on YouTube")))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "absolute -top-8 left-8 bg-[#762e2f] h-32 w-32 rounded-full opacity-20"

@@ -65,9 +65,27 @@ const Pillars = () => {
               {/* Learn More Button */}
               <a
                 href={pillar.link}
-                className="inline-block mt-auto text-[#F89131] bg-white py-2 px-5 rounded-full font-semibold transition-transform duration-300 transform group-hover:-translate-y-1 group-hover:scale-105"
+                className="inline-flex items-center mt-auto py-2 px-5 rounded-full font-semibold transition-transform duration-300 transform group-hover:-translate-y-1 group-hover:scale-105"
+                style={{
+                  backgroundColor: "white",
+                  color: pillar.bgColor,
+                }}
               >
-                Learn more...
+                Learn more
+                <svg
+                  className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </a>
             </div>
           ))}

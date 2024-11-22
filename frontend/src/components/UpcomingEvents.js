@@ -1,5 +1,6 @@
 import React from "react";
 import { FiArrowRight, FiYoutube, FiCamera } from "react-icons/fi";
+import ALGLOGO from '../assets/images/alg-color.svg'
 
 const upcomingEvent = {
   title: "Annual Leaders Gathering",
@@ -7,7 +8,7 @@ const upcomingEvent = {
   location: "Sheraton Kampala Hotel, Kampala, Uganda",
   description:
     "The Annual Leaders Gathering is LéO Africa Institute’s premier event, bringing together visionary leaders for discussions, networking, and collaborations aimed at reshaping Africa’s future.",
-  image: "/path/to/alg-image.jpg",
+  image: ALGLOGO,
 };
 
 const otherEvents = [
@@ -78,10 +79,10 @@ const Events = () => {
               </span>
             </p>
             <a
-              href="/register"
+              href="https://alg.leoafricainstitute.org/speakers/"
               className="inline-flex items-center bg-[#762e2f] text-white py-3 px-8 rounded-full font-semibold shadow-md transition-transform duration-300 hover:bg-[#f6911e] hover:scale-105"
             >
-              Reserve Your Spot
+              Follow #ALG2024 
               <FiArrowRight className="ml-2 transition-transform duration-300 transform group-hover:translate-x-1 group-hover:scale-110" />
             </a>
           </div>

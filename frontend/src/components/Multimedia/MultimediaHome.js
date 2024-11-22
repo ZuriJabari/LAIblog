@@ -13,7 +13,7 @@ const MultimediaHome = ({ data }) => {
   return (
     <section className="container mx-auto px-6 lg:px-20 py-12">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-4xl font-bold text-gray-800">Latest Multimedia Updates</h2>
+        <h2 className="text-4xl font-bold text-gray-800">Featured</h2>
         <Link
           to="/blog"
           className="text-[#1d8f92] font-semibold hover:underline"
