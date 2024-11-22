@@ -57,49 +57,70 @@ const BlogPage = ({ data }) => {
       </div>
 
       {/* Hero Section */}
-      <section className="h-[70vh] grid grid-cols-1 lg:grid-cols-2">
-        <div className="flex flex-col justify-center px-6 lg:px-20 bg-black bg-opacity-80 text-white">
-          <div className="flex items-center mb-4">
-            {blog.author_picture?.url && (
-              <img
-                src={blog.author_picture.url}
-                alt={blog.author || "Author"}
-                className="w-16 h-16 rounded-full mr-4"
-              />
-            )}
-            <p className="text-sm text-gray-300">
-              By <span className="font-semibold">{blog.author || "Unknown"}</span> | {blog.publish_date}
-            </p>
-          </div>
-          <h1 className="text-5xl lg:text-6xl font-extrabold mb-4 hover:scale-105 transition-transform duration-500">
-            {blog.title}
-          </h1>
-          <p className="text-lg lg:text-xl italic text-gray-300 mb-6 leading-relaxed">
-            {RichText.asText(blog.introduction.raw)}
-          </p>
-          <div className="flex items-center space-x-4">
-            <span className="text-base font-semibold">Share this article:</span>
-            <FacebookShareButton url={shareUrl} quote={blog.title}>
-              <FacebookIcon size={40} round />
-            </FacebookShareButton>
-            <TwitterShareButton url={shareUrl} title={blog.title}>
-              <TwitterIcon size={40} round />
-            </TwitterShareButton>
-            <LinkedinShareButton url={shareUrl}>
-              <LinkedinIcon size={40} round />
-            </LinkedinShareButton>
-            <WhatsappShareButton url={shareUrl} title={blog.title}>
-              <WhatsappIcon size={40} round />
-            </WhatsappShareButton>
-          </div>
-        </div>
-        <div
-          className="bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${blog.featured_image?.url || ""})`,
-          }}
-        ></div>
-      </section>
+      {/* Hero Section */}
+      {/* Hero Section */}
+<section className="h-[70vh] grid grid-cols-1 lg:grid-cols-2">
+  <div className="flex flex-col justify-center px-6 lg:px-20 bg-black bg-opacity-80 text-white">
+    <div className="container mx-auto">
+      <div className="flex items-center mb-4">
+        {blog.author_picture?.url && (
+          <img
+            src={blog.author_picture.url}
+            alt={blog.author || "Author"}
+            className="w-16 h-16 rounded-full mr-4"
+          />
+        )}
+        <p className="text-sm text-gray-300">
+          By <span className="font-semibold">{blog.author || "Unknown"}</span> | {blog.publish_date}
+        </p>
+      </div>
+      {/* Horizontal Line */}
+      <hr className="border-t border-gray-500 my-4" />
+      <h1 className="text-5xl lg:text-6xl font-extrabold mb-4 hover:scale-105 transition-transform duration-500">
+        {blog.title}
+      </h1>
+      <p className="text-lg lg:text-xl italic text-gray-300 mb-6 leading-relaxed">
+        {blog.excerpt}
+      </p>
+      <p className="text-lg lg:text-xl text-gray-300 mb-6 leading-relaxed">
+        {RichText.asText(blog.introduction.raw)}
+      </p>
+      <div className="flex items-center space-x-4 mb-6">
+        <span className="text-base font-semibold">Share this article:</span>
+        <FacebookShareButton url={shareUrl} quote={blog.title}>
+          <FacebookIcon size={40} round />
+        </FacebookShareButton>
+        <TwitterShareButton url={shareUrl} title={blog.title}>
+          <TwitterIcon size={40} round />
+        </TwitterShareButton>
+        <LinkedinShareButton url={shareUrl}>
+          <LinkedinIcon size={40} round />
+        </LinkedinShareButton>
+        <WhatsappShareButton url={shareUrl} title={blog.title}>
+          <WhatsappIcon size={40} round />
+        </WhatsappShareButton>
+      </div>
+      {/* Back to Blogs Link */}
+      <div className="flex justify-start">
+        <Link
+          to="/blog"
+          className="flex items-center text-lg font-semibold text-[#f6911e] hover:underline transition-all duration-300"
+        >
+          <span className="animate-pulse mr-2">&larr;</span>
+          <span>Back to Blogs</span>
+        </Link>
+      </div>
+    </div>
+  </div>
+  <div
+    className="bg-cover bg-center"
+    style={{
+      backgroundImage: `url(${blog.featured_image?.url || ""})`,
+    }}
+  ></div>
+</section>
+
+
 
       {/* Content Area */}
       <article
