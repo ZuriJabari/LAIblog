@@ -694,7 +694,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var react_icons_fi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.mjs");
 
 
 
@@ -733,14 +732,6 @@ const profiles = {
       linkedin: "#",
       facebook: "#"
     }
-  }, {
-    name: "Sophia Green",
-    title: "Climate Activist",
-    photo: "/path/to/sophia.jpg",
-    socials: {
-      linkedin: "#",
-      twitter: "#"
-    }
   }],
   champions: [{
     name: "Sarah White",
@@ -776,14 +767,6 @@ const profiles = {
       twitter: "#",
       facebook: "#"
     }
-  }, {
-    name: "Olivia Clark",
-    title: "Community Builder",
-    photo: "/path/to/olivia.jpg",
-    socials: {
-      facebook: "#",
-      twitter: "#"
-    }
   }]
 };
 const OurPeople = () => {
@@ -791,72 +774,35 @@ const OurPeople = () => {
     0: activeTab,
     1: setActiveTab
   } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("fellows");
-  const {
-    0: fade,
-    1: setFade
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
-  const scrollRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  const autoScrollInterval = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    setFade(false);
-    const timeout = setTimeout(() => setFade(true), 300);
-    return () => clearTimeout(timeout);
-  }, [activeTab]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    startAutoScroll();
-    return () => clearInterval(autoScrollInterval.current);
-  }, [activeTab]);
-  const startAutoScroll = () => {
-    clearInterval(autoScrollInterval.current);
-    autoScrollInterval.current = setInterval(() => scroll('right'), 5000);
-  };
-  const pauseAutoScroll = () => clearInterval(autoScrollInterval.current);
-  const scroll = direction => {
-    const {
-      current
-    } = scrollRef;
-    const scrollAmount = 300;
-    current.scrollBy({
-      left: direction === 'left' ? -scrollAmount : scrollAmount,
-      behavior: 'smooth'
-    });
-  };
   const descriptions = {
-    fellows: "Our Fellows represent a diverse group of emerging leaders who are actively shaping Africa's future by driving positive change in their communities.",
-    champions: "Our Champions are influential supporters and partners whose contributions have been pivotal in advancing our mission and impacting African leaders."
+    fellows: "Our Fellows are a diverse group of leaders actively shaping Africa's future through impactful initiatives.",
+    champions: "Our Champions are influential supporters making significant contributions to our mission and community."
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "py-20 bg-[#1e8e92] text-white w-full relative"
+    className: "py-20 bg-gradient-to-b from-[#1e8e92] to-[#0d6163] text-white w-full relative"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "max-w-7xl mx-auto px-8 space-y-8"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex items-baseline justify-between space-x-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-5xl font-extrabold tracking-tighter text-left text-[#f6911e] drop-shadow-md"
+    className: "text-5xl font-extrabold tracking-tighter text-center text-[#f6911e] drop-shadow-md mb-8"
   }, "Fellows and Champions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex space-x-4 px-4 py-2 bg-white bg-opacity-50 rounded-full shadow-lg"
+    className: "flex justify-center space-x-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     onClick: () => setActiveTab("fellows"),
-    className: `px-6 py-2 text-lg font-semibold rounded-full transition-all duration-300 
-                ${activeTab === "fellows" ? 'bg-white text-[#1e8e92] shadow-lg' : 'text-white hover:bg-white hover:bg-opacity-40'}`
-  }, "Our Fellows"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: `flex items-center px-6 py-3 text-lg font-semibold rounded-full transition-all duration-300 space-x-2 ${activeTab === "fellows" ? "bg-white text-[#1e8e92] shadow-lg scale-105" : "text-white hover:bg-white hover:text-[#1e8e92] hover:shadow-lg"}`
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUsers, {
+    size: 20
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Our Fellows")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     onClick: () => setActiveTab("champions"),
-    className: `px-6 py-2 text-lg font-semibold rounded-full transition-all duration-300 
-                ${activeTab === "champions" ? 'bg-white text-[#1e8e92] shadow-lg' : 'text-white hover:bg-white hover:bg-opacity-40'}`
-  }, "Our Champions"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: `text-lg text-left max-w-4xl text-[#f0f0f0] leading-relaxed transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`
+    className: `flex items-center px-6 py-3 text-lg font-semibold rounded-full transition-all duration-300 space-x-2 ${activeTab === "champions" ? "bg-white text-[#1e8e92] shadow-lg scale-105" : "text-white hover:bg-white hover:text-[#1e8e92] hover:shadow-lg"}`
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaAward, {
+    size: 20
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Our Champions"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-lg text-center max-w-4xl mx-auto text-[#f0f0f0] leading-relaxed"
   }, descriptions[activeTab]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "relative w-screen left-1/2 right-1/2 -ml-[50vw] overflow-hidden",
-    onMouseEnter: pauseAutoScroll,
-    onMouseLeave: startAutoScroll
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    ref: scrollRef,
-    className: "flex overflow-x-scroll space-x-8 px-8 no-scrollbar snap-x snap-mandatory"
-  }, profiles[activeTab].map((person, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+  }, profiles[activeTab].slice(0, 4).map((person, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     key: index,
-    className: "flex-shrink-0 bg-white text-[#1e8e92] p-6 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-transform duration-300 w-64 md:w-72 lg:w-80 snap-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex flex-col items-center text-center space-y-2"
+    className: "flex flex-col items-center bg-white text-[#1e8e92] p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform duration-300 hover:scale-105"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     src: person.photo,
     alt: person.name,
@@ -883,31 +829,12 @@ const OurPeople = () => {
     href: person.socials.instagram,
     "aria-label": "Instagram",
     className: "hover:text-[#1e8e92]"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaInstagram, null))), activeTab === "fellows" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/success-stories",
-    className: "text-[#f6911e] font-semibold hover:underline text-center block mt-4"
-  }, "Success Stories & Achievements") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: `/contributions/${person.name.toLowerCase().replace(' ', '-')}`,
-    className: "text-[#f6911e] font-semibold hover:underline text-center block mt-4"
-  }, "Contributions to the Institute"))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "absolute top-24    right-8 flex space-x-2 pb-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "relative flex items-center space-x-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    onClick: () => scroll('left'),
-    className: "p-4 bg-[#f6911e] rounded-full hover:bg-[#89272a] transition-colors shadow-md"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_2__.FiArrowLeft, {
-    className: "text-white",
-    size: 20
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "text-xs font-semibold text-[#f6911e] bg-white bg-opacity-80 rounded-full px-3 py-1 animate-bounce"
-  }, "Scroll"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    onClick: () => scroll('right'),
-    className: "p-4 bg-[#f6911e] rounded-full hover:bg-[#89272a] transition-colors shadow-md"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_2__.FiArrowRight, {
-    className: "text-white",
-    size: 20
-  })))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaInstagram, null)))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "flex justify-end mt-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: `/${activeTab === "fellows" ? "fellows" : "champions"}`,
+    className: "bg-[#f6911e] text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-[#89272a] transition-transform duration-300 transform hover:scale-105"
+  }, "View All ", activeTab === "fellows" ? "Fellows" : "Champions"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OurPeople);
 
@@ -989,6 +916,91 @@ const PartnerWithUs = () => {
 
 /***/ }),
 
+/***/ "./src/components/Pillars.js":
+/*!***********************************!*\
+  !*** ./src/components/Pillars.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const pillars = [{
+  title: "Climate Change",
+  subtitle: "Empowering Young Leaders in Climate Action",
+  description: "Climate change poses significant risks to Africa, manifesting in natural disasters, deforestation, and energy crises. The Léo Africa Institute is committed to empowering young climate action actors and ensuring the sincerity of climate change discussions.",
+  link: "/climate-change",
+  bgColor: "#F89131"
+}, {
+  title: "Economic Empowerment",
+  subtitle: "Driving Inclusive Growth Across the Continent",
+  description: "The Léo Africa Institute believes in fostering entrepreneurship and innovation to address poverty and unemployment. By empowering young African leaders, we aim to build a sustainable and inclusive economic future.",
+  link: "/economic-empowerment",
+  bgColor: "#01BDCC"
+}, {
+  title: "Cultural Heritage",
+  subtitle: "Preserving and Celebrating Africa's Legacy",
+  description: "Our cultural heritage is a source of strength and identity. Through various initiatives, the Léo Africa Institute supports the preservation of Africa's rich cultural traditions and narratives.",
+  link: "/cultural-heritage",
+  bgColor: "#910810"
+}, {
+  title: "Good Governance",
+  subtitle: "Promoting Accountability and Leadership",
+  description: "The Institute is committed to nurturing leaders who uphold democratic principles and ethical governance to create lasting change across African societies.",
+  link: "/good-governance",
+  bgColor: "#545456"
+}];
+const Pillars = () => {
+  const {
+    0: activeIndex,
+    1: setActiveIndex
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
+  const handleAccordionClick = index => {
+    setActiveIndex(index);
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+    className: "py-20 bg-[#545456] text-white"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "max-w-7xl mx-auto px-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+    className: "text-4xl font-extrabold tracking-tight text-center text-[#F89131] mb-12"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "font-light"
+  }, "The Next Africa:"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Pillars of African Renaissance")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "flex overflow-hidden rounded-lg shadow-lg"
+  }, pillars.map((pillar, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    key: index,
+    className: `relative flex-shrink-0 transition-all duration-500 ${activeIndex === index ? "flex-[3]" : "flex-[1]"}`,
+    onClick: () => handleAccordionClick(index),
+    style: {
+      backgroundColor: activeIndex === index ? pillar.bgColor : "#545456",
+      cursor: "pointer"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: `absolute inset-0 flex items-center justify-center text-center text-lg font-bold ${activeIndex === index ? "text-white" : "text-[#EDEDED]"}`
+  }, pillar.title), activeIndex === index && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "absolute inset-0 p-6 space-y-4 text-left",
+    style: {
+      backgroundColor: pillar.bgColor,
+      color: "white"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    className: "text-xl font-extrabold"
+  }, pillar.subtitle), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "text-sm leading-relaxed"
+  }, pillar.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: pillar.link,
+    className: "inline-block text-white bg-[#762e2f] py-2 px-4 rounded-md font-semibold hover:bg-white hover:text-[#762e2f] transition-colors"
+  }, "Learn more...")))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Pillars);
+
+/***/ }),
+
 /***/ "./src/components/SubscriptionForm.js":
 /*!********************************************!*\
   !*** ./src/components/SubscriptionForm.js ***!
@@ -1057,9 +1069,10 @@ const upcomingEvent = {
   title: "Annual Leaders Gathering",
   date: "14th - 16th November 2024, All Day",
   location: "Sheraton Kampala Hotel, Kampala, Uganda",
-  description: "The Annual Leaders Gathering is LéO Africa Institute’s premier event, bringing together visionary leaders for discussions, networking, and collaborations aimed at reshaping Africa’s future."
+  description: "The Annual Leaders Gathering is LéO Africa Institute’s premier event, bringing together visionary leaders for discussions, networking, and collaborations aimed at reshaping Africa’s future.",
+  image: "/path/to/alg-image.jpg"
 };
-const pastEvents = [{
+const otherEvents = [{
   title: "Huduma Class of 2024 Workshop One",
   date: "March 10, 2024",
   location: "Nairobi, Kenya",
@@ -1076,151 +1089,91 @@ const pastEvents = [{
   flickr: "https://flickr.com/link",
   youtube: "https://youtube.com/link"
 }, {
-  title: "Kwezi Tabaro Farewell Dinner",
-  date: "May 15, 2024",
-  location: "Kampala, Uganda",
-  theme: "Honoring Leadership",
-  image: "/path/to/image3.jpg",
-  flickr: "https://flickr.com/link",
-  youtube: "https://youtube.com/link"
-}, {
-  title: "Huduma Class of 2024 Workshop Two",
-  date: "June 5, 2024",
-  location: "Mombasa, Kenya",
-  theme: "Transformational Leadership",
-  image: "/path/to/image4.jpg",
-  flickr: "https://flickr.com/link",
-  youtube: "https://youtube.com/link"
-}, {
   title: "Leadership Conversation with Usama Mukwaya",
   date: "August 12, 2024",
   location: "Kigali, Rwanda",
   theme: "Innovative Leadership in Africa",
-  image: "/path/to/image5.jpg",
-  flickr: "https://flickr.com/link",
-  youtube: "https://youtube.com/link"
-}, {
-  title: "Annual Leaders Gathering 2023",
-  date: "November 10, 2023",
-  location: "Kampala, Uganda",
-  theme: "Empowering Young Leaders",
-  image: "/path/to/image6.jpg",
-  flickr: "https://flickr.com/link",
-  youtube: "https://youtube.com/link"
-}, {
-  title: "YELP Class of 2023 Graduation",
-  date: "December 1, 2023",
-  location: "Kampala, Uganda",
-  theme: "Youth Empowerment",
-  image: "/path/to/image7.jpg",
+  image: "/path/to/image3.jpg",
   flickr: "https://flickr.com/link",
   youtube: "https://youtube.com/link"
 }];
 const Events = () => {
-  const {
-    0: activeTab,
-    1: setActiveTab
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("nextEvent");
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
-    className: "py-20 bg-[#f5f5f5] text-[#1e8e92] relative overflow-hidden"
+    className: "py-20 bg-[#f5f5f5] text-[#762e2f] relative overflow-hidden"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "max-w-7xl mx-auto px-8 space-y-12"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex items-baseline justify-between space-x-6"
+    className: "max-w-7xl mx-auto px-8 space-y-12 relative"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-5xl font-extrabold tracking-tighter text-left text-[#f6911e] drop-shadow-md"
+    className: "text-5xl font-extrabold tracking-tight text-[#762e2f] drop-shadow-md"
   }, "Our Events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex space-x-4 px-4 py-2 bg-white bg-opacity-50 rounded-full shadow-lg"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    onClick: () => setActiveTab("nextEvent"),
-    className: `px-6 py-2 text-lg font-semibold rounded-full transition-all duration-300 
-                ${activeTab === "nextEvent" ? 'bg-white text-[#1e8e92] shadow-lg' : 'text-[#1e8e92] hover:bg-white hover:bg-opacity-40'}`
-  }, "Our Next Event"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    onClick: () => setActiveTab("upcomingEvents"),
-    className: `px-6 py-2 text-lg font-semibold rounded-full transition-all duration-300 
-                ${activeTab === "upcomingEvents" ? 'bg-white text-[#1e8e92] shadow-lg' : 'text-[#1e8e92] hover:bg-white hover:bg-opacity-40'}`
-  }, "Upcoming Events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    onClick: () => setActiveTab("pastEvents"),
-    className: `px-6 py-2 text-lg font-semibold rounded-full transition-all duration-300 
-                ${activeTab === "pastEvents" ? 'bg-white text-[#1e8e92] shadow-lg' : 'text-[#1e8e92] hover:bg-white hover:bg-opacity-40'}`
-  }, "Past Events"))), (activeTab === "nextEvent" || activeTab === "upcomingEvents") && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "space-y-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-4xl font-extrabold tracking-tight text-[#1e8e92]"
-  }, activeTab === "nextEvent" ? "Up Next..." : "Upcoming Events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex flex-col md:flex-row items-center md:items-start bg-white text-[#1e8e92] shadow-xl rounded-lg overflow-hidden p-8 md:p-12 space-y-8 md:space-y-0 md:space-x-10"
+    className: "flex flex-col lg:flex-row items-center bg-white shadow-xl rounded-lg overflow-hidden p-6 lg:p-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "flex flex-col items-center justify-center bg-[#f0f0f0] text-[#1e8e92] p-8 rounded-lg shadow-lg"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "text-6xl font-bold"
-  }, "14"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "w-full h-[1px] bg-[#1e8e92] opacity-40 my-2"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "text-xl font-semibold"
-  }, "NOV"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "text-md mt-1"
-  }, "2024")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "text-left space-y-4"
+    className: "lg:w-1/2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: upcomingEvent.image,
+    alt: upcomingEvent.title,
+    className: "w-full rounded-lg shadow-lg"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "lg:w-1/2 lg:pl-12 text-left space-y-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "text-3xl font-extrabold leading-tight"
+    className: "text-3xl font-extrabold text-[#762e2f] leading-tight"
   }, upcomingEvent.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "text-lg leading-relaxed text-[#545454]"
   }, upcomingEvent.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "font-semibold text-[#1e8e92]"
-  }, "Date & Time: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "font-semibold text-[#762e2f]"
+  }, "Date & Time:", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "text-[#545454] font-normal"
   }, upcomingEvent.date)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "font-semibold text-[#1e8e92]"
-  }, "Venue: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "font-semibold text-[#762e2f]"
+  }, "Venue:", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "text-[#545454] font-normal"
   }, upcomingEvent.location)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "/register",
-    className: "group inline-flex items-center bg-[#1e8e92] text-white py-3 px-8 rounded-full font-semibold shadow-md transition-transform duration-300 transform hover:bg-[#f6911e] hover:scale-105 mt-4"
+    className: "inline-flex items-center bg-[#762e2f] text-white py-3 px-8 rounded-full font-semibold shadow-md transition-transform duration-300 hover:bg-[#f6911e] hover:scale-105"
   }, "Reserve Your Spot", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_1__.FiArrowRight, {
     className: "ml-2 transition-transform duration-300 transform group-hover:translate-x-1 group-hover:scale-110"
-  }))))), activeTab === "pastEvents" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "space-y-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
-    className: "text-4xl font-extrabold tracking-tight text-[#1e8e92]"
-  }, "Past Events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "grid gap-8 lg:grid-cols-2"
-  }, pastEvents.map((event, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "space-y-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    className: "text-4xl font-extrabold tracking-tight text-[#762e2f]"
+  }, "Other Events"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "grid gap-8 lg:grid-cols-3"
+  }, otherEvents.map((event, index) => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     key: index,
-    className: "relative bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
+    className: "bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     src: event.image,
     alt: event.title,
     className: "w-full h-48 object-cover"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "p-6 text-[#1e8e92]"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    className: "text-2xl font-bold mb-2"
+    className: "p-6 text-left"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
+    className: "text-2xl font-bold mb-2 text-[#762e2f]"
   }, event.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "text-sm font-semibold text-[#f6911e]"
   }, event.date, " | ", event.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "text-md leading-relaxed text-[#545454] mt-2"
+    className: "text-md mt-2 leading-relaxed text-[#545454]"
   }, "Theme: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "font-semibold"
   }, event.theme)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "mt-4 flex space-x-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: event.flickr,
-    className: "flex items-center text-[#1e8e92] hover:text-[#f6911e]",
+    className: "flex items-center text-[#762e2f] hover:text-[#f6911e]",
     target: "_blank",
     rel: "noopener noreferrer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_1__.FiCamera, {
     className: "mr-1"
   }), " Flickr Album"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: event.youtube,
-    className: "flex items-center text-[#1e8e92] hover:text-[#f6911e]",
+    className: "flex items-center text-[#762e2f] hover:text-[#f6911e]",
     target: "_blank",
     rel: "noopener noreferrer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_fi__WEBPACK_IMPORTED_MODULE_1__.FiYoutube, {
     className: "mr-1"
   }), " Watch on YouTube")))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "absolute -top-8 -left-8 bg-[#f6911e] h-32 w-32 rounded-full opacity-20"
+    className: "absolute -top-8 left-8 bg-[#762e2f] h-32 w-32 rounded-full opacity-20"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "absolute -bottom-10 -right-10 bg-[#89272a] h-40 w-40 rounded-full opacity-20"
+    className: "absolute -bottom-10 right-8 bg-[#762e2f] h-40 w-40 rounded-full opacity-20"
   }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Events);
@@ -1248,6 +1201,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Initiatives__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Initiatives */ "./src/components/Initiatives.js");
 /* harmony import */ var _components_OurPeople__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/OurPeople */ "./src/components/OurPeople.js");
 /* harmony import */ var _components_SubscriptionForm__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/SubscriptionForm */ "./src/components/SubscriptionForm.js");
+/* harmony import */ var _components_Pillars__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Pillars */ "./src/components/Pillars.js");
+
 
 
 
@@ -1267,7 +1222,7 @@ const HomePage = ({
     data: data
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Initiatives__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "prefooter-gray"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_UpcomingEvents__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_OurPeople__WEBPACK_IMPORTED_MODULE_8__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_PartnerWithUs__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_SubscriptionForm__WEBPACK_IMPORTED_MODULE_9__["default"], null));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_UpcomingEvents__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Pillars__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_OurPeople__WEBPACK_IMPORTED_MODULE_8__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_PartnerWithUs__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_SubscriptionForm__WEBPACK_IMPORTED_MODULE_9__["default"], null));
 };
 const query = "2349994975";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomePage);

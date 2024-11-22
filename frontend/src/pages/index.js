@@ -9,6 +9,7 @@ import PartnerWithUs from "../components/PartnerWithUs";
 import Initiatives from "../components/Initiatives";
 import OurPeople from "../components/OurPeople";
 import SubscriptionForm from "../components/SubscriptionForm";
+import Pillars from "../components/Pillars";
 
 const HomePage = ({ data }) => {
   return (
@@ -20,6 +21,7 @@ const HomePage = ({ data }) => {
       <div className="prefooter-gray"></div>
 
       <UpcomingEvents />
+      <Pillars/>
       <OurPeople />
       <PartnerWithUs />
       <SubscriptionForm />
